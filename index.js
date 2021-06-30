@@ -2,8 +2,8 @@ const express = require('express') //express 모듈을 가져옴
 const app = express()  // function을 이용해 app을 만듬
 const port = 5000   
 
-const bodyParser = require('body-parser') // bodyParser 모듈 가져옴 
-
+const bodyParser = require('body-parser'); // bodyParser 모듈 가져옴 
+const cookieParser = require('cookie-parser'); // cookie-parser 모듈
 const config = require('./config/key'); // 비밀 설정 정보
 
 const { User } = require("./models/User"); // User.js에서 데이터 가져옴
@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // application/json
 app.use(bodyParser.json());
+// cookieParser 사용하게 
+app.use(cookieParser());
 
 
 // 어플리케이션 & 몽고디비 연결
@@ -82,15 +84,15 @@ app.post('/login', (req, res) => {
 
   // 비밀번호까지 맞다면 Token은 생성하기
       user.generateToken((err, user) => {
+        if(err) return res.status(400).send(err);
 
-
-        
+        // 토큰을 저장한다. 어디에?  쿠키, 로컬스토리지
+            res.cookie("x_auth", user.token)
+            .status(200)
+            .json({ loginSuccess: true, userId: user._id })
       })
-
     })
-
   })
-
 })
 
 
