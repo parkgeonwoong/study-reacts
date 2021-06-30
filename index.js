@@ -3,6 +3,9 @@ const app = express()  // function을 이용해 app을 만듬
 const port = 5000   
 
 const bodyParser = require('body-parser') // bodyParser 모듈 가져옴 
+
+const config = require('./config/key'); // 비밀 설정 정보
+
 const { User } = require("./models/User"); // User.js에서 데이터 가져옴
 
 // bodyParser 옵션을 준다.
@@ -17,7 +20,7 @@ app.use(bodyParser.json());
 
 // 어플리케이션 & 몽고디비 연결
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://msa:1234@msa.qmpl3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI, {
     useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
     // 위에 쓰는 이유 에러가 안뜨게 하기 위해서
 }).then(() => console.log('MongoDB Connected...')) // =>: function기능을 간소화 catch(function(err){ return console.log..})
@@ -29,7 +32,7 @@ mongoose.connect('mongodb+srv://msa:1234@msa.qmpl3.mongodb.net/myFirstDatabase?r
 
 
 app.get('/', (req, res) => { //루트 디렉토리에 "/" 
-  res.send('Hello World!    안녕하세요!!')
+  res.send('Hello World!    안녕하세요!! 오늘은 행복한 하루.')
 })
 // req: request  , res: response
 
