@@ -54,9 +54,23 @@ userSchema.pre('save', function( next ) {
                 next()
             })
         })
+    } else {
+        next()
     }
      
-})
+})  
+
+
+// 유저모델에서 comparepassword메소드를 만든다.
+userSchema.methods.comparePassword = function(plainPassword, cb) {
+
+    // plainPassword: 1234       암호화된 비밀번호: $2b$10$IJk/Rbqbvqh6ykLn
+    bcrypt.compare(plainPassword, this.password, function(err, isMatch) {
+        if(err) return cb(err),     // 암호화를 하고 나서 같지않다. 에러
+            cb(null, isMatch)
+    })
+}
+
 
 // 스키마를 모델로 감싼다.
 // model(모델이름, 스키마이름)
