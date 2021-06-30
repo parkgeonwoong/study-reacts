@@ -26,8 +26,9 @@ mongoose.connect(config.mongoURI, {
 }).then(() => console.log('MongoDB Connected...')) // =>: function기능을 간소화 catch(function(err){ return console.log..})
   .catch(err => console.log(err))       //map: 호출 배열의 모든 요소에 대해 제공된 함수를 호출 한 결과로 채워진 새 배열을 만듬
 
+
 // mongo db 에서 사용자 가져오기
-// mongodb+srv://msa:<password>@msa.qmpl3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+// mongodb+srv://msa:<password>@---.----.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 
 
@@ -51,6 +52,7 @@ app.post('/register', (req, res) => {
   */
     // User 인스턴스화
    const user = new User(req.body)  // bodyParser에서 받아오는 데이터를 저장할려면 req.body
+// --> 여기에 User.js의 암호화 bcrypt
 
    // 몽고디비에서 오는 메소드 save()
    user.save((err, userInfo) => {  // 콜백 function

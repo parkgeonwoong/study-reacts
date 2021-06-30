@@ -1,5 +1,7 @@
 // mongoose 모듈 가져오기 
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt'); 
+const saltRounds = 10
 
 // 스키마 생성
 const userSchema = mongoose.Schema({
@@ -26,7 +28,34 @@ const userSchema = mongoose.Schema({
         type: Number,   // 1이면 관리자 
         default: 0      // 기본값은 0 일반 유저
     },
-    image: String,  
+    image: String, 
+    token: {
+        type: String
+    },
+    tokenExp: {
+        type: Number
+    } 
+})
+
+// 몽구스 메소드
+// index.js에서 save 나오기 전에 먼저 실행
+userSchema.pre('save', function( next ) {
+    var user = this; // 스키마를 가리킨다.
+
+//  비밀번호 수정일 경우에만 보여주게 조건을 달아줌
+    if (user.isModified('password')) {
+        // 비밀번호를 암호화 시킨다.
+        bcrypt.genSalt(saltRounds, function(err, salt){
+            if(err) return next(err)
+
+            bcrypt.hash(user.password , salt, function(err, hash) {
+                if(err) return next(err)
+                user.password = hash
+                next()
+            })
+        })
+    }
+     
 })
 
 // 스키마를 모델로 감싼다.
