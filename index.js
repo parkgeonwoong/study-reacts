@@ -5,7 +5,7 @@ const port = 5000
 const bodyParser = require('body-parser'); // bodyParser 모듈 가져옴 
 const cookieParser = require('cookie-parser'); // cookie-parser 모듈
 const config = require('./config/key'); // 비밀 설정 정보
-
+const { auth } = require('./middleware/auth'); //auth 
 const { User } = require("./models/User"); // User.js에서 데이터 가져옴
 
 // bodyParser 옵션을 준다.
@@ -41,7 +41,7 @@ app.get('/', (req, res) => { //루트 디렉토리에 "/"
 
 
 // 회원가입을 위한 라우터 만들기
-app.post('/register', (req, res) => {
+app.post('/api/users/register', (req, res) => {
 
   // 회원 가입 할때 필요한 정보들을 client에서 가져오면 
   // 그것들을 데이터베이스에 넣어준다.
@@ -66,9 +66,10 @@ app.post('/register', (req, res) => {
 })
 
 // 로그인을 위한 라우터 생성
-app.post('/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
 
   // 요청한 이메일을 데이터베이스에서 있는지 찾는다.
+      // req.body: JSON 데이터를 담을 때 사용(주로 Post로 유저 정보, 파일업로드)
   User.findOne({ email: req.body.email }, (err, user) => {  // user 콜렉션 안에 이메일을 가진 유저가 한명도 없다면 user가 없다
     if(!user) {
       return res.json({
@@ -95,6 +96,23 @@ app.post('/login', (req, res) => {
   })
 })
 
+// Auth 라우터 
+app.get('/api/users/auth', auth, (req, res) => {  
+        //auth 미들에어: 콜백 들어가기 전에 하는것 // auth.js 에서 오는것
+
+    // 여기까지 미들웨어를 통과해 왔다는 얘기는 Authentication이 True 라는 말
+    res.status(200).json({
+      _id: req.user._id, // auth.js 에서 req.user 해놔서 가능
+      isAdmin: req.user.role === 0 ? false : true, // role 0 => 유저 , role 0 =/ 관리자
+      isAuth: true,
+      id: req.user.id,
+      email: req.user.email,
+      name: req.user.name,
+      role: req.user.role,
+      image: req.user.image
+    })
+
+})
 
 
 app.listen(port, () => {
