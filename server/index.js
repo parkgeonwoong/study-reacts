@@ -1,6 +1,6 @@
 const express = require('express') //express 모듈을 가져옴
 const app = express()  // function을 이용해 app을 만듬
-const port = 5000   
+  
 
 const bodyParser = require('body-parser'); // bodyParser 모듈 가져옴 
 const cookieParser = require('cookie-parser'); // co-parser 모듈
@@ -32,6 +32,7 @@ mongoose.connect(config.mongoURI, {
 // mongo db 에서 사용자 가져오기
 // mongodb+srv://msa:<password>@---.----.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
+app.get('/api/hello', (req, res) => res.send("안뇽 안뇽 ~ ") )
 
 
 app.get('/', (req, res) => { //루트 디렉토리에 "/" 
@@ -126,6 +127,8 @@ app.get('/api/users/logout', auth, (req, res) => {
       })
     } )
 }) 
+
+const port = 5000 
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
