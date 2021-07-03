@@ -3,12 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux'; //redux에서 제공하는 provider 
+// antd CSS
+import 'antd/dist/antd.css';
+import { applyMiddleware, createStore } from 'redux';
+import promiseMiddleware from 'redux-promise';
+import ReduxThunk from 'redux-thunk';
+import Reducer from './_reducers';
+
+// promise, function 처리
+const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore)
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  //<React.StrictMode>
+  <Provider
+    store={createStoreWithMiddleware(Reducer, 
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__()
+      )}
+  >
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Provider>
+  //</React.StrictMode>
+  , document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
