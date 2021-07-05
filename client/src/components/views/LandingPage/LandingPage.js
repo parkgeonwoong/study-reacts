@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { Button } from "antd";
-
+import './LandingPage.css';
 
 function LandingPage(props) {
 
@@ -26,17 +26,21 @@ function LandingPage(props) {
 
 
     return (
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'
-        , width: '100%', height: '100vh'
+        <div style={{display: 'flex', flexFlow: 'column', justifyContent: 'center', alignItems: 'center'
+        ,width: '100%',  height: '100vh'
         }}>
             
-            <h2>시작 페이지<br /></h2>
-            
+            <div id="a">
+            <h2>Node.js & React</h2>
+            </div>
+
+            <br />
             <Button  type="primary" onClick={onClickHandler}>
                 로그아웃
             </Button>
-            
+   
         </div>
+        
     )
 }
 
