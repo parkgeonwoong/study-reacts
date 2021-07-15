@@ -26,7 +26,7 @@
 <strong>• IDE</strong>&nbsp&nbsp&nbsp
 <img src="http://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/></a> &nbsp
 </p>
-
+<br />
    
 ## ✅Installation
 React has been designed for gradual adoption from the start, and you can use as little or as much React as you need:
@@ -46,7 +46,7 @@ You can use React as a `<script>` tag from a [CDN](https://reactjs.org/docs/cdn-
   - Server : Node.js
   - Client : React
   - DataBase : MongoDB
-  
+<br />  
   
 
 ### 🔸Server Dependency
