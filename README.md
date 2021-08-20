@@ -1,30 +1,30 @@
-# 📌MSA Architecture Project
+# 📌BoilerPlate
 
 <p> 
 <strong>• Environment</strong>&nbsp&nbsp&nbsp
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/></a> &nbsp
-<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=Node.js&logoColor=white"/></a> &nbsp 
-<img src="http://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/></a> &nbsp
-<img src="http://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white"/></a> &nbsp
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style&logo=JavaScript&logoColor=white"/></a> &nbsp
+<img src="https://img.shields.io/badge/Node.js-339933?style&logo=Node.js&logoColor=white"/></a> &nbsp 
+<img src="http://img.shields.io/badge/React-61DAFB?style&logo=React&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/MongoDB-47A248?style&logo=MongoDB&logoColor=white"/></a> &nbsp
 </p>
 <p>
 <strong>• API & Tech Stack</strong>&nbsp&nbsp&nbsp
-<img src="http://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/></a> &nbsp
-<img src="http://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white"/></a> &nbsp
-<img src="http://img.shields.io/badge/Nodemon-76D04B?style=flat-square&logo=Nodemon&logoColor=white"/></a> &nbsp
-<img src="http://img.shields.io/badge/React Router-CA4245?style=flat-square&logo=React Router&logoColor=white"/></a> &nbsp
-<img src="http://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/></a> &nbsp
-<img src="http://img.shields.io/badge/JSON Web Tokens-000000?style=flat-square&logo=JSON Web Tokens&logoColor=white"/></a> &nbsp
-<img src="http://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=Postman&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/Git-F05032?styl&logo=Git&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/npm-CB3837?style&logo=npm&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/Nodemon-76D04B?style&logo=Nodemon&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/React Router-CA4245?style&logo=React Router&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/Redux-764ABC?style&logo=Redux&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/JSON Web Tokens-000000?style&logo=JSON Web Tokens&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/Postman-FF6C37?style&logo=Postman&logoColor=white"/></a> &nbsp
 </p>
 <p>
 <strong>• Style</strong>&nbsp&nbsp&nbsp
-<img src="http://img.shields.io/badge/Ant Design-0170FE?style=flat-square&logo=Ant Design&logoColor=white"/></a> &nbsp
-<img src="http://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=Bootstrap&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/Ant Design-0170FE?style&logo=Ant Design&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/Bootstrap-7952B3?style&logo=Bootstrap&logoColor=white"/></a> &nbsp
 </p>
 <p>
 <strong>• IDE</strong>&nbsp&nbsp&nbsp
-<img src="http://img.shields.io/badge/Visual Studio Code-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/></a> &nbsp
+<img src="http://img.shields.io/badge/Visual Studio Code-007ACC?style&logo=Visual Studio Code&logoColor=white"/></a> &nbsp
 </p>
 <br />
    
