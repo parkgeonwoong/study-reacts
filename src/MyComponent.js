@@ -1,5 +1,10 @@
-const MyComponent = (props) => {
-  return <div>My name {props.name} 입니다</div>;
+const MyComponent = ({ name, children }) => {
+  return (
+    <div>
+      My name {name} 입니다 <br />
+      Children value {children}
+    </div>
+  );
 };
 
 MyComponent.defaultProps = {

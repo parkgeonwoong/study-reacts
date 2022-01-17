@@ -3,7 +3,7 @@ import { Component } from "react";
 import MyComponent from "./MyComponent";
 
 const App = () => {
-  return <MyComponent />;
+  return <MyComponent>react</MyComponent>;
 };
 
 export default App;
