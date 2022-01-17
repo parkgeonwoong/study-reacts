@@ -22,4 +22,15 @@ class MyComponent extends Component {
   }
 }
 
+// 함수형 컴포넌트
+// const MyComponent = (props) => {
+//     const { name, children } = props;
+//     return (
+//       <div>
+//         My name {name} 입니다 <br />
+//         Children value {children}
+//       </div>
+//     );
+//   };
+
 export default MyComponent;
