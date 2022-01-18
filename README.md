@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# 📌 React Document
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[React](https://ko.reactjs.org/)
 
-## Available Scripts
+- React는 사용자 인터페이스를 만들기 위한 JavaScript 라이브러리
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+## ✅ React 개념 이해
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- blog에 정리
+- https://parkgeonwoong.github.io/categories/React/Document/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
 
-### `npm test`
+### 🔸 React 설치
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Create React APP
 
-### `npm run build`
+```bash
+npx create-react-app my-app
+cd my-app
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✅ React 개념 소스코드
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [class Component](https://github.com/parkgeonwoong/document-react/commit/2aad81d0814b5552b01bb4e0d3b6ad7760c078a0)
 
-### `npm run eject`
+- [Props & children & destructuring](https://github.com/parkgeonwoong/document-react/commit/df5cbf2be48621ad6673e25dedebf54dda239341)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [propTypes](https://github.com/parkgeonwoong/document-react/commit/cc1c8c206ed97137e6e5f27b7aef0d2987414331)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [class Component state](https://github.com/parkgeonwoong/document-react/commit/0409cbb5d2c2cfd0332ee4a977cf639b30d44f59)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [function Component state](https://github.com/parkgeonwoong/document-react/commit/4dd5b3b1680239765e0375de066bc4a429300fc6)
