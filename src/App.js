@@ -1,10 +1,25 @@
 import { Component } from "react";
 import "./App.css";
-import ValidationSample from "./components/ValidationSample";
+import ScrollBox from "./components/ScrollBox";
 
 class App extends Component {
   render() {
-    return <ValidationSample />;
+    return (
+      <div>
+        <ScrollBox
+          ref={(ref) => {
+            this.scrollBox = ref;
+          }}
+        />
+        <button
+          onClick={() => {
+            this.scrollBox.scrollToBottom();
+          }}
+        >
+          맨 뒤에
+        </button>
+      </div>
+    );
   }
 }
 
