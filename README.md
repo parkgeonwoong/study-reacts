@@ -32,7 +32,7 @@ npm start
 - [x] 컴포넌트 props state
 - [x] 이벤트 핸들링
 - [x] ref: DOM
-- [ ] 컴포넌트 반복
+- [x] 컴포넌트 반복
 - [ ] 컴포넌트의 라이프사이클 메서드
 - [ ] Hooks
 - [ ] 컴포넌트 스타일링
@@ -62,3 +62,6 @@ npm start
 - [fuction Component: eventHandle](https://github.com/parkgeonwoong/document-react/commit/7d4bf39fb3c2a0bcba67944e8c08bdc9552d3cc0)
 - [ref: callback & createRef](https://github.com/parkgeonwoong/document-react/commit/a88417427f16583c4055ea0cb1d3120c555fda73)
 - [ref: Component](https://github.com/parkgeonwoong/document-react/commit/41ac7a3b21d5dc9789aedf654f3b6419c6ef0a76)
+- [component iteration: map()](https://github.com/parkgeonwoong/document-react/commit/584fbd813ca2ead1e1effd355f309d59af1ae500)
+- [component iteration: key](https://github.com/parkgeonwoong/document-react/commit/d4fc1203aa607aa92e20515c6bf69530cc28ce93)
+- [dynamic array rendering](https://github.com/parkgeonwoong/document-react/commit/3b2143a5f0759edcb7d703774f9985f4d635e17b)
