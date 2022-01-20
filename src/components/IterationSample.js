@@ -10,9 +10,26 @@ const IterationSample = () => {
   const [inputText, setInputText] = useState("");
   const [nextId, setNextId] = useState(5);
 
+  const onChange = (e) => setInputText(e.target.value);
+  const onClick = () => {
+    const nextNames = names.concat({
+      id: nextId,
+      text: inputText,
+    });
+    setNextId(nextId + 1);
+    setNames(nextNames);
+    setInputText("");
+  };
+
   const nameList = names.map((name) => <li key={name.id}>{name.text}</li>);
 
-  return <ul>{nameList}</ul>;
+  return (
+    <div>
+      <input value={inputText} onChange={onChange}></input>
+      <button onClick={onClick}>Add</button>
+      <ul>{nameList}</ul>
+    </div>
+  );
 };
 
 export default IterationSample;
