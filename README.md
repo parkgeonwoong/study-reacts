@@ -33,7 +33,7 @@ npm start
 - [x] 이벤트 핸들링
 - [x] ref: DOM
 - [x] 컴포넌트 반복
-- [ ] 컴포넌트의 라이프사이클 메서드
+- [x] 컴포넌트의 라이프사이클 메서드
 - [ ] Hooks
 - [ ] 컴포넌트 스타일링
 - [ ] 프로젝트
@@ -65,3 +65,5 @@ npm start
 - [component iteration: map()](https://github.com/parkgeonwoong/document-react/commit/584fbd813ca2ead1e1effd355f309d59af1ae500)
 - [component iteration: key](https://github.com/parkgeonwoong/document-react/commit/d4fc1203aa607aa92e20515c6bf69530cc28ce93)
 - [dynamic array rendering](https://github.com/parkgeonwoong/document-react/commit/3b2143a5f0759edcb7d703774f9985f4d635e17b)
+- [LifeCycle component](https://github.com/parkgeonwoong/document-react/commit/86b328e6ee05f169a3caf35bc0fbf811b5427081)
+- [LifeCycle Error componentDidCatch](https://github.com/parkgeonwoong/document-react/commit/ce0216196591be47d0dc0c23b5cdb49b449356f6)
