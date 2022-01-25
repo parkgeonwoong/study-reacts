@@ -1,33 +1,25 @@
-import { Component } from "react";
 import "./App.css";
-import ErrorBoundary from "./components/ErrorBoundary";
-import LifeCycleSample from "./components/LifeCycleSample";
+import { useState } from "react";
+import Counter from "./hooks/Counter";
+import Info from "./hooks/Info";
 
-function getRandomColor() {
-  return "#" + Math.floor(Math.random() * 16777215).toString(16);
-}
+const App = () => {
+  const [visible, setVisible] = useState(false);
 
-class App extends Component {
-  state = {
-    color: "#000000",
-  };
-
-  handleClick = () => {
-    this.setState({
-      color: getRandomColor(),
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <button onClick={this.handleClick}>랜덤 색상</button>
-        <ErrorBoundary>
-          <LifeCycleSample color={this.state.color} />;
-        </ErrorBoundary>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <button
+        onClick={() => {
+          setVisible(!visible);
+        }}
+      >
+        {" "}
+        {visible ? "숨기기" : "보이기"}{" "}
+      </button>
+      <hr />
+      {visible && <Info />}
+    </div>
+  );
+};
 
 export default App;
