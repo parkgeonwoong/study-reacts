@@ -1,9 +1,9 @@
 import "./App.css";
 import { useState } from "react";
-import InfoReducer from "./hooks/InfoReducer";
+import Average from "./hooks/Average";
 
 const App = () => {
-  return <InfoReducer />;
+  return <Average />;
 };
 
 export default App;
