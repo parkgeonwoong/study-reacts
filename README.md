@@ -67,3 +67,6 @@ npm start
 - [dynamic array rendering](https://github.com/parkgeonwoong/document-react/commit/3b2143a5f0759edcb7d703774f9985f4d635e17b)
 - [LifeCycle component](https://github.com/parkgeonwoong/document-react/commit/86b328e6ee05f169a3caf35bc0fbf811b5427081)
 - [LifeCycle Error componentDidCatch](https://github.com/parkgeonwoong/document-react/commit/ce0216196591be47d0dc0c23b5cdb49b449356f6)
+- [Hooks: useState & useEffect](https://github.com/parkgeonwoong/document-react/commit/2e8bf933379637059a5e1ff25867f6f1b433007d)
+- [Hooks: useReducer](https://github.com/parkgeonwoong/document-react/commit/9b3a86fb4ec6f2b59a33891b70ed561598d64421)
+- [Hooks: useMemo](https://github.com/parkgeonwoong/document-react/commit/ee83e264e1e44f43f3b44fea2ed51a526081ef1a)
