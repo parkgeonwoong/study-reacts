@@ -18,9 +18,42 @@
 `Create React APP`
 
 ```bash
+# npx react 설치
 npx create-react-app my-app
 cd my-app
 npm start
+
+# yarn react 설치
+yarn create-react-app my-app
+cd my-app
+yarn start
+```
+
+<br>
+
+### 🔸 yarn을 이용한 Sass
+
+- [Yarn Page](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
+
+```bash
+# npm yarn
+npm install --global yarn
+
+# npm install
+yarn install 또는 yarn
+
+# npm i <package> --save
+yarn add <package>
+
+# npm i <package> --save-dev
+yarn add <package> --dev : --dev 옵션은 -D 와 같다.
+
+# 패키지 삭제
+yarn remove <package>
+
+# Sass 설치
+yarn add sass
+
 ```
 
 <br>
@@ -34,7 +67,7 @@ npm start
 - [x] ref: DOM
 - [x] 컴포넌트 반복
 - [x] 컴포넌트의 라이프사이클 메서드
-- [ ] Hooks
+- [x] Hooks
 - [ ] 컴포넌트 스타일링
 - [ ] 프로젝트
 - [ ] 컴포넌트 성능 최적화
@@ -70,3 +103,6 @@ npm start
 - [Hooks: useState & useEffect](https://github.com/parkgeonwoong/document-react/commit/2e8bf933379637059a5e1ff25867f6f1b433007d)
 - [Hooks: useReducer](https://github.com/parkgeonwoong/document-react/commit/9b3a86fb4ec6f2b59a33891b70ed561598d64421)
 - [Hooks: useMemo](https://github.com/parkgeonwoong/document-react/commit/ee83e264e1e44f43f3b44fea2ed51a526081ef1a)
+- [Hooks: useCallback](https://github.com/parkgeonwoong/document-react/commit/1f9948c10894e0f85fbb6ea3a2a8352486175af6)
+- [Hooks: useRef](https://github.com/parkgeonwoong/document-react/commit/6a4ebd1c079b30fd28fe8193b7db9629194b2ac1)
+- [Hooks: CustomHook](https://github.com/parkgeonwoong/document-react/commit/a6449ee5957e2ba8c8fd75736ae33d396e99aa45)
