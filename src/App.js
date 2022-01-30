@@ -1,11 +1,11 @@
 import "./App.css";
 import { useState } from "react";
-import SassComponent from "./styles/SassComponent";
+import CSSModule from "./styles/CSSModule";
 
 const App = () => {
   return (
     <div>
-      <SassComponent />
+      <CSSModule />
     </div>
   );
 };
