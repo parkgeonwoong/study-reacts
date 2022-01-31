@@ -68,7 +68,7 @@ yarn add sass
 - [x] 컴포넌트 반복
 - [x] 컴포넌트의 라이프사이클 메서드
 - [x] Hooks
-- [ ] 컴포넌트 스타일링
+- [x] 컴포넌트 스타일링
 - [ ] 프로젝트
 - [ ] 컴포넌트 성능 최적화
 - [ ] immer 불변성 유지
@@ -106,3 +106,7 @@ yarn add sass
 - [Hooks: useCallback](https://github.com/parkgeonwoong/document-react/commit/1f9948c10894e0f85fbb6ea3a2a8352486175af6)
 - [Hooks: useRef](https://github.com/parkgeonwoong/document-react/commit/6a4ebd1c079b30fd28fe8193b7db9629194b2ac1)
 - [Hooks: CustomHook](https://github.com/parkgeonwoong/document-react/commit/a6449ee5957e2ba8c8fd75736ae33d396e99aa45)
+- [Sass setting & utils](https://github.com/parkgeonwoong/document-react/commit/5e43086841d63ca99f7d3a6a6904c79b6b430d7c)
+- [Sass node_modules library load](https://github.com/parkgeonwoong/document-react/commit/aadd7050a2b091aa2d9af76d6e4373565fbc58d2)
+- [CSS Module](https://github.com/parkgeonwoong/document-react/commit/5db6a8c79eb656093c703fc4018b329125091ac9)
+- [Styled-Components](https://github.com/parkgeonwoong/document-react/commit/72c369d9961961d6c1b7eb46fd73ec17ad265d13)
