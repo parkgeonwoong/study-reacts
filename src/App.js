@@ -1,13 +1,14 @@
-import "./App.css";
-import { useState } from "react";
-import CSSModule from "./styles/CSSModule";
+import { Component } from "react";
+import StyledComponent from "./styles/StyledComponent";
 
-const App = () => {
-  return (
-    <div>
-      <CSSModule />
-    </div>
-  );
-};
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <StyledComponent />
+      </div>
+    );
+  }
+}
 
 export default App;
