@@ -1,6 +1,7 @@
 .TodoInsert {
   display: flex;
   background: white;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 
   input {
     background: none;
@@ -25,7 +26,7 @@
     color: black;
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     cursor: pointer;

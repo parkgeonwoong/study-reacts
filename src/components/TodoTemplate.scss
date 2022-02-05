@@ -1,3 +1,5 @@
+@import './variable.scss';
+
 .TodoTemplate {
   width: 512px;
   margin-left: auto;
@@ -9,7 +11,7 @@
   animation: fade-in 0.8s ease-in-out;
 
   .app-title {
-    background: #36509e;
+    background: $blue;
     color: white;
     height: 4rem;
     font-size: 1.5rem;
