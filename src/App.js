@@ -1,7 +1,8 @@
 import './App.css';
+import TodoTemplate from './components/TodoTemplate';
 
-function App() {
-  return <div>Todo App</div>;
-}
+const App = () => {
+  return <TodoTemplate>Todo App making!</TodoTemplate>;
+};
 
 export default App;
