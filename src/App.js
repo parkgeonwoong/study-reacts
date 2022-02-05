@@ -1,8 +1,13 @@
 import './App.css';
+import TodoInsert from './components/TodoInsert';
 import TodoTemplate from './components/TodoTemplate';
 
 const App = () => {
-  return <TodoTemplate>Todo App making!</TodoTemplate>;
+  return (
+    <TodoTemplate>
+      <TodoInsert />
+    </TodoTemplate>
+  );
 };
 
 export default App;
