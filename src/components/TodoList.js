@@ -1,3 +1,4 @@
+import React from 'react';
 import './TodoList.scss';
 import TodoListItem from './TodoListItem';
 
@@ -16,4 +17,4 @@ const TodoList = ({ todos, onRemove, onToggle }) => {
   );
 };
 
-export default TodoList;
+export default React.memo(TodoList);
