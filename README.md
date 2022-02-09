@@ -69,8 +69,8 @@ yarn add sass
 - [x] 컴포넌트의 라이프사이클 메서드
 - [x] Hooks
 - [x] 컴포넌트 스타일링
-- [ ] 프로젝트
-- [ ] 컴포넌트 성능 최적화
+- [x] 프로젝트
+- [x] 컴포넌트 성능 최적화
 - [ ] immer 불변성 유지
 - [ ] 리액트라우터 SPA
 - [ ] 외부 API 연동
@@ -110,3 +110,10 @@ yarn add sass
 - [Sass node_modules library load](https://github.com/parkgeonwoong/document-react/commit/aadd7050a2b091aa2d9af76d6e4373565fbc58d2)
 - [CSS Module](https://github.com/parkgeonwoong/document-react/commit/5db6a8c79eb656093c703fc4018b329125091ac9)
 - [Styled-Components](https://github.com/parkgeonwoong/document-react/commit/72c369d9961961d6c1b7eb46fd73ec17ad265d13)
+
+[TodoList 레포지토리](<(https://github.com/parkgeonwoong/todo-react)>)
+
+- [TodoList-project](https://github.com/parkgeonwoong/todo-react/commit/a618a37b2fd51b4665e3567dc56298810502fedc)
+- [Optimize component performance: React.memo useState](https://github.com/parkgeonwoong/todo-react/commit/eab555c47ab59a6050e19ccb048ee60c08a307d3)
+- [Optimize component performance: React.memo useReducer](https://github.com/parkgeonwoong/todo-react/commit/52ffb3d13f050d6379ce224dbbda543d027ac960)
+- [Optimize component performance: react-virtualized](https://github.com/parkgeonwoong/todo-react/commit/708e22ed59960b771d74fba2957d5be185bca22a)
