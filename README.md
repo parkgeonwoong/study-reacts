@@ -111,7 +111,7 @@ yarn add sass
 - [CSS Module](https://github.com/parkgeonwoong/document-react/commit/5db6a8c79eb656093c703fc4018b329125091ac9)
 - [Styled-Components](https://github.com/parkgeonwoong/document-react/commit/72c369d9961961d6c1b7eb46fd73ec17ad265d13)
 
-[TodoList 레포지토리](<(https://github.com/parkgeonwoong/todo-react)>)
+[TodoList 레포지토리](https://github.com/parkgeonwoong/todo-react)
 
 - [TodoList-project](https://github.com/parkgeonwoong/todo-react/commit/a618a37b2fd51b4665e3567dc56298810502fedc)
 - [Optimize component performance: React.memo useState](https://github.com/parkgeonwoong/todo-react/commit/eab555c47ab59a6050e19ccb048ee60c08a307d3)
