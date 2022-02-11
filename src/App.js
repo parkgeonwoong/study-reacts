@@ -1,4 +1,4 @@
-import { useReducer, useRef, useCallback } from 'react';
+import { useReducer, useRef, useCallback, useEffect } from 'react';
 import './App.css';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
@@ -34,6 +34,13 @@ function todoReducer(todos, action) {
 
 const App = () => {
   const [todos, dispatch] = useReducer(todoReducer, undefined, creatBulkTodos);
+  // const [todos, dispatch] = useReducer(todoReducer, undefined, , () =>
+  //   JSON.parse(window.localStorage.getItem('todos')),
+  // );
+
+  // useEffect(() => {
+  //   window.localStorage.setItem('todos', JSON.stringify(todos));
+  // }, [todos]);
 
   // ref를 사용하여 변수 담기
   const nextId = useRef(2501);

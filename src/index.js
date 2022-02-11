@@ -4,11 +4,13 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import LocalStorage from './storage/LocalStorage';
+import AppUseState from './AppUseState';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <LocalStorage />
+    <App />
+    {/* <LocalStorage /> */}
+    {/* <AppUseState /> */}
   </React.StrictMode>,
   document.getElementById('root'),
 );

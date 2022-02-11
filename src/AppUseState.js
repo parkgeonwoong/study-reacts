@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import './App.css';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
@@ -16,7 +16,7 @@ function creatBulkTodos() {
   return array;
 }
 
-const App = () => {
+const AppUseState = () => {
   const [todos, setTodos] = useState(creatBulkTodos);
 
   // ref를 사용하여 변수 담기
@@ -52,4 +52,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default AppUseState;

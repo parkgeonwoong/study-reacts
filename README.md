@@ -2,7 +2,7 @@
 
 - react의 기본기부터 컴포넌트 스타일링까지 방법을 토대로 side 프로젝트 일정 관리 애플리케이션 구현
 
-- [document-react 개념](https://github.com/parkgeonwoong/document-react)
+- [document-react 레포지토리](https://github.com/parkgeonwoong/document-react)
 
 <br>
 
@@ -67,3 +67,7 @@
 3. useState 함수형 업데이트 기능 사용 (업데이트를 정의로 고쳐보자)
 4. useReducer hook을 사용해보자
 5. react-virtualized를 사용해 렌더링 최적화도 가능 (사용자 화면에 맞춰 렌더링)
+
+<br>
+
+<img src="./assets/gallery.png" width="400" height="400">
