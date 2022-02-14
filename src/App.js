@@ -6,6 +6,7 @@ import Profile from "./pages/Profile";
 import Articles from "./pages/Articles";
 import Article from "./pages/Article";
 import Layout from "./Layout";
+import Notfound from "./pages/Notfound";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/articles" element={<Articles />}>
             <Route path=":id" element={<Article />} />
           </Route>
+          <Route path="*" element={<Notfound />} />
         </Route>
       </Routes>
     </div>
