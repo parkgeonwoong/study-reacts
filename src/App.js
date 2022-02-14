@@ -15,9 +15,9 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/profiles/:username" element={<Profile />} />
-        </Route>
-        <Route path="/articles" element={<Articles />}>
-          <Route path=":id" element={<Article />} />
+          <Route path="/articles" element={<Articles />}>
+            <Route path=":id" element={<Article />} />
+          </Route>
         </Route>
       </Routes>
     </div>
