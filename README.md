@@ -50,3 +50,12 @@
 
    - `<Route path="" element={<>}>` 안에 `<Route>`
    - Outlet Hook 사용 : Route의 children으로 들어가는 JSX 엘리먼트 보여줌 -> `<Outlet />`
+
+8. 부가 기능
+
+   - `useNavigate` Hook = Link 컴포넌트 -> 다른 페이지로 이동
+     - `replace 옵션` : 페이지 이동 시 현재 페이지 기록을 남기지 않는다
+   - `NavLink` : Link에 스타일 주는 컴포넌트
+     - `{ isActive: boolean}`을 파라미터로 전달
+   - `<Route path='*'>` `*` : 라우트 엘리먼트의 상단 위치하는 라우트들의 규칙을 확인 후 없다면 이 라우트가 화면에 적용
+   - `Navigate` 컴포넌트 = 리다이렉트 = 순간 다른 페이지 이동
