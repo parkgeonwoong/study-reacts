@@ -71,8 +71,8 @@ yarn add sass
 - [x] 컴포넌트 스타일링
 - [x] 프로젝트
 - [x] 컴포넌트 성능 최적화
-- [ ] immer 불변성 유지
-- [ ] 리액트라우터 SPA
+- [x] immer 불변성 유지
+- [x] 리액트라우터 SPA
 - [ ] 외부 API 연동
 - [ ] Context API
 - [ ] 리덕스 라이브러리
@@ -117,3 +117,18 @@ yarn add sass
 - [Optimize component performance: React.memo useState](https://github.com/parkgeonwoong/todo-react/commit/eab555c47ab59a6050e19ccb048ee60c08a307d3)
 - [Optimize component performance: React.memo useReducer](https://github.com/parkgeonwoong/todo-react/commit/52ffb3d13f050d6379ce224dbbda543d027ac960)
 - [Optimize component performance: react-virtualized](https://github.com/parkgeonwoong/todo-react/commit/708e22ed59960b771d74fba2957d5be185bca22a)
+- [immutability](https://github.com/parkgeonwoong/document-react/commit/17ac6f0fa8afe3d2bd4ff777d787c263e509a3fc)
+- [immer Library](https://github.com/parkgeonwoong/document-react/commit/005b94c97206ffca2566f1523d2c2a571139ee74)
+- [immer useState function update](https://github.com/parkgeonwoong/document-react/commit/50ddb232b9a340bf6d4a9cbab88fd568a1684f3b)
+
+[react-router tutorial](https://github.com/parkgeonwoong/reactRouter-react)
+
+- [route: component URI move](https://github.com/parkgeonwoong/reactRouter-react/commit/d3179ad725783b6411944fe86a5ce4ce966208cd)
+- [Link component](https://github.com/parkgeonwoong/reactRouter-react/commit/bb78134e6c04c0e54dcac92f47d40b43cc232523)
+- [URL parameter: useParams Hook](https://github.com/parkgeonwoong/reactRouter-react/commit/11ad1f68f09440b00e0f35ba221eee21d329774a)
+- [Query parameter: useSearchParams Hook](https://github.com/parkgeonwoong/reactRouter-react/commit/50119df3e2d92f9b4fd2a687a5c5d17500403781)
+- [nested Route](https://github.com/parkgeonwoong/reactRouter-react/commit/05db43233f8b523b995cda5b2713def124311a33)
+- [Outlet Hook: layout Component](https://github.com/parkgeonwoong/reactRouter-react/commit/84cb2125d6eec98ee8fd2e1362733f4f2f934495)
+- [useNavigate Hook](https://github.com/parkgeonwoong/reactRouter-react/commit/c6b526b1600b20967e0c39e03670d2a60d5f73ac)
+- [NavLink Component](https://github.com/parkgeonwoong/reactRouter-react/commit/e5e1afc11ee4980e6070dd03596515473e7d4ad0)
+- [Navigate Component](https://github.com/parkgeonwoong/reactRouter-react/commit/61731ce85a302c0f3ce507db10d2b0752ac1d60c)
