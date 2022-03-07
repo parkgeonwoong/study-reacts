@@ -1,12 +1,28 @@
 import "./App.css";
-import Async from "./asyn/Async";
-import Callback from "./asyn/Callback";
-import Promises from "./asyn/Promises";
+import axios from "axios";
+import { useState } from "react";
 
 const App = () => {
+  const [data, setData] = useState(null);
+  const onClick = () => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/todos/1")
+      .then((response) => {
+        setData(response.data);
+      });
+  };
   return (
     <div>
-      <Async />
+      <div>
+        <button onClick={onClick}>Load</button>
+      </div>
+      {data && (
+        <textarea
+          row={7}
+          value={JSON.stringify(data, null, 2)}
+          readOnly={true}
+        />
+      )}
     </div>
   );
 };
