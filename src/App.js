@@ -1,10 +1,11 @@
 import "./App.css";
-import Callback from "./Callback";
+import Callback from "./asyn/Callback";
+import Promises from "./asyn/Promises";
 
 const App = () => {
   return (
     <div>
-      <Callback />
+      <Promises />
     </div>
   );
 };
