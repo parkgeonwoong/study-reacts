@@ -3,31 +3,31 @@ import styled, { css } from "styled-components";
 const categories = [
   {
     name: "all",
-    text: "전체보기",
+    text: "All",
   },
   {
     name: "business",
-    text: "비즈니스",
+    text: "Business",
   },
   {
     name: "entertainment",
-    text: "엔터테인먼트",
+    text: "Entertainment",
   },
   {
     name: "health",
-    text: "건강",
+    text: "Health",
   },
   {
     name: "science",
-    text: "과학",
+    text: "Science",
   },
   {
     name: "sports",
-    text: "스포츠",
+    text: "Sports",
   },
   {
     name: "technology",
-    text: "기술",
+    text: "Technology",
   },
 ];
 
@@ -36,7 +36,7 @@ const CategoriesBlock = styled.div`
   padding: 1rem;
   width: 768px;
   margin: 0 auto;
-  box-shadow: 0px 1px 0.8px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   @media screen and (max-width: 768px) {
     width: 100%;
     overflow-y: auto;
@@ -66,7 +66,7 @@ const Category = styled.div`
         }`}
 
   & + & {
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
 `;
 
