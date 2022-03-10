@@ -28,7 +28,7 @@ const NewsItemBlock = styled.div`
       }
     }
     p {
-      margin: 0;
+      margin: 10px;
       margin-top: 10px;
       line-height: 1.5;
       margin-top: 0.5rem;
