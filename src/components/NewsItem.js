@@ -24,6 +24,7 @@ const NewsItemBlock = styled.div`
     h2 {
       margin: 10px;
       a {
+        text-decoration: none;
         color: black;
       }
     }
