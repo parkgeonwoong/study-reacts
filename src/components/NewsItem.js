@@ -15,7 +15,7 @@ const NewsItemBlock = styled.div`
 
       &:hover {
         transform: scale(1.1);
-        transition: all 0.5s ease;
+        transition: all 0.7s ease;
       }
     }
   }
@@ -26,6 +26,10 @@ const NewsItemBlock = styled.div`
       a {
         text-decoration: none;
         color: black;
+      }
+      &:hover {
+        transform: scale(1.05);
+        transition: all 0.7s ease;
       }
     }
     p {
