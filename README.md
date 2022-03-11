@@ -95,3 +95,23 @@ const onClick = async () => {
   }
 };
 ```
+
+<br>
+
+## Context API
+
+- 전역적으로 사용할 데이터가 있을 때 유용하다
+- 더 많은 컴포넌트를 거칠 경우 관리가 힘들다 -> 그러기에 손쉽게 관리
+
+<br>
+
+- **생성**
+
+```jsx
+// color.js
+import { createContext } from "react";
+
+const ColorContext = createContext({ color: "black" });
+
+export default color;
+```
