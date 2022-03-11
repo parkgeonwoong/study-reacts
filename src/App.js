@@ -1,13 +1,14 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import NewsPage from "./pages/NewsPage";
+import ColorBox from "./components/ColorBox";
+import ColorContext from "./contexts/color";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<NewsPage />} />
-      <Route path="/:category" element={<NewsPage />} />
-    </Routes>
+    <ColorContext.Provider value={{ color: "tomato" }}>
+      <div>
+        <ColorBox />
+      </div>
+    </ColorContext.Provider>
   );
 };
 
