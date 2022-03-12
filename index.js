@@ -68,7 +68,7 @@ store.subscribe(render);
 
 // 8. 액션 발생 = dispatch
 divToggle.onclick = () => {
-  store.dispatch(toggleSwitch);
+  store.dispatch(toggleSwitch());
 };
 btnIncrease.onclick = () => {
   store.dispatch(increase(1));
