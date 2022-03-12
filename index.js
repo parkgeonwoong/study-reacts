@@ -12,7 +12,7 @@ const DECREASE = "DECREASE";
 
 // 2.액션 객체
 const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
-const increase = () => ({ type: INCREASE, difference });
+const increase = (difference) => ({ type: INCREASE, difference });
 const decrease = () => ({ type: DECREASE });
 
 // 3.초깃값 설정
@@ -67,12 +67,12 @@ render();
 store.subscribe(render);
 
 // 8. 액션 발생 = dispatch
-divToggle.onClick = () => {
+divToggle.onclick = () => {
   store.dispatch(toggleSwitch);
 };
-btnIncrease.onClick = () => {
-  store.dispatch(increase);
+btnIncrease.onclick = () => {
+  store.dispatch(increase(1));
 };
-btnDecrease.onClick = () => {
-  store.dispatch(decrease);
+btnDecrease.onclick = () => {
+  store.dispatch(decrease());
 };
