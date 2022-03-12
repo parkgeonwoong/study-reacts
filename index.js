@@ -62,3 +62,6 @@ const render = () => {
 };
 
 render();
+
+// 7.구독하기
+store.subscribe(render);
