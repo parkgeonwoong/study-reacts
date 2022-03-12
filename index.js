@@ -65,3 +65,14 @@ render();
 
 // 7.구독하기
 store.subscribe(render);
+
+// 8. 액션 발생 = dispatch
+divToggle.onClick = () => {
+  store.dispatch(toggleSwitch);
+};
+btnIncrease.onClick = () => {
+  store.dispatch(increase);
+};
+btnDecrease.onClick = () => {
+  store.dispatch(decrease);
+};
