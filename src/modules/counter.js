@@ -5,8 +5,8 @@ const INCREASE = "counter/INCREASE";
 const DECREASE = "counter/DECREASE";
 
 // 액션 생성 함수
-export const increase = () => createAction(INCREASE);
-export const decrease = () => createAction(DECREASE);
+export const increase = createAction(INCREASE);
+export const decrease = createAction(DECREASE);
 
 // 초기값 설정
 const initalState = {
