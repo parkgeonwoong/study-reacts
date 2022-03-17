@@ -73,10 +73,10 @@ yarn add sass
 - [x] 컴포넌트 성능 최적화
 - [x] immer 불변성 유지
 - [x] 리액트라우터 SPA
-- [ ] 외부 API 연동
-- [ ] Context API
-- [ ] 리덕스 라이브러리
-- [ ] 리덕스 사용해 상태 관리
+- [x] 외부 API 연동
+- [x] Context API
+- [x] 리덕스 라이브러리
+- [x] 리덕스 사용해 상태 관리
 - [ ] 리덕스 미들웨어를 통해 비동기 작업 관리
 - [ ] 코드 스플리팅
 - [ ] 서버 사이드 렌더링
@@ -111,6 +111,8 @@ yarn add sass
 - [CSS Module](https://github.com/parkgeonwoong/document-react/commit/5db6a8c79eb656093c703fc4018b329125091ac9)
 - [Styled-Components](https://github.com/parkgeonwoong/document-react/commit/72c369d9961961d6c1b7eb46fd73ec17ad265d13)
 
+<br>
+
 [TodoList 레포지토리](https://github.com/parkgeonwoong/todo-react)
 
 - [TodoList-project](https://github.com/parkgeonwoong/todo-react/commit/a618a37b2fd51b4665e3567dc56298810502fedc)
@@ -121,7 +123,9 @@ yarn add sass
 - [immer Library](https://github.com/parkgeonwoong/document-react/commit/005b94c97206ffca2566f1523d2c2a571139ee74)
 - [immer useState function update](https://github.com/parkgeonwoong/document-react/commit/50ddb232b9a340bf6d4a9cbab88fd568a1684f3b)
 
-[react-router tutorial](https://github.com/parkgeonwoong/reactRouter-react)
+<br>
+
+[react-router 레포지토리](https://github.com/parkgeonwoong/reactRouter-react)
 
 - [route: component URI move](https://github.com/parkgeonwoong/reactRouter-react/commit/d3179ad725783b6411944fe86a5ce4ce966208cd)
 - [Link component](https://github.com/parkgeonwoong/reactRouter-react/commit/bb78134e6c04c0e54dcac92f47d40b43cc232523)
@@ -132,3 +136,34 @@ yarn add sass
 - [useNavigate Hook](https://github.com/parkgeonwoong/reactRouter-react/commit/c6b526b1600b20967e0c39e03670d2a60d5f73ac)
 - [NavLink Component](https://github.com/parkgeonwoong/reactRouter-react/commit/e5e1afc11ee4980e6070dd03596515473e7d4ad0)
 - [Navigate Component](https://github.com/parkgeonwoong/reactRouter-react/commit/61731ce85a302c0f3ce507db10d2b0752ac1d60c)
+
+<br>
+
+[외부 API 뉴스 레포지토리](https://github.com/parkgeonwoong/api-react)
+
+- [callback](https://github.com/parkgeonwoong/api-react/commit/6c0f398343e011b067703efaeadb7477810b2dc9)
+- [promise](https://github.com/parkgeonwoong/api-react/commit/bc82e96a050724c4525f453fa45a89dece774877)
+- [async/await](https://github.com/parkgeonwoong/api-react/commit/39776f8778f1cf911108b78be126fd7c117dd450)
+- [axios](https://github.com/parkgeonwoong/api-react/commit/c24549ed4a845ece567b8f09c2f2b4f4b53dad9d)
+- [axios async](https://github.com/parkgeonwoong/api-react/commit/965a4a54bb2fefe6007b48edbafe7400124ea3d4)
+- [뉴스 api useState 구현](https://github.com/parkgeonwoong/api-react/commit/cd07f90db4c66751991b93fd0b9539ebd6b35349)
+- [뉴스 api react-router 구현](https://github.com/parkgeonwoong/api-react/commit/aa6f703b3ed0a9515a28496b0200b73b6b6eb94c)
+- [contextAPI](https://github.com/parkgeonwoong/api-react/commit/fd64402f61c975e433becb5547acdef356c20a1c)
+- [useContext Hook](https://github.com/parkgeonwoong/api-react/commit/8af13023f13a1666b3777aeb06590f9f95b49a71)
+
+<br>
+
+[redux 라이브러리 이해 VanillaJS 레포지토리](https://github.com/parkgeonwoong/redux-vanillaJS)
+
+- [redux-action](https://github.com/parkgeonwoong/redux-vanillaJS/commit/d59bf8b1699df176081a0529901e7de4aadba671)
+- [redux-store](https://github.com/parkgeonwoong/redux-vanillaJS/commit/5669a5b60b35862ab98ec17c431413333cbbd836)
+- [redux-subscribe](https://github.com/parkgeonwoong/redux-vanillaJS/commit/704c512eb24299ad715e44bf77251217e99fee8d)
+- [redux-dispatch](https://github.com/parkgeonwoong/redux-vanillaJS/commit/4532781291454d820977577a5a04b228449b84be)
+
+<br>
+
+[redux-react 레포지토리](https://github.com/parkgeonwoong/redux-react)
+
+- [Modules](https://github.com/parkgeonwoong/redux-react/commit/1740f76298ffd73707c53548d31b4dfd2989f9ca)
+- [develop rootReducer: combineReducers](https://github.com/parkgeonwoong/redux-react/commit/f738bbf3ab37320e27d748128546f7074e6de2ee)
+- [react-redux connect](https://github.com/parkgeonwoong/redux-react/commit/95a29ed5ce769c4673ab571a22916b8454cdbda1)
