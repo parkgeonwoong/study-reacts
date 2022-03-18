@@ -8,9 +8,23 @@
   <script>
     // span element 생성
     const root = document.getElementById("root");
-    const span = React.createElement("span", { id: "wrapper" }, "Hello span");
+    const h3 = React.createElement(
+      "h3",
+      {
+        onMouseEnter: () => console.log("mouse enter"),
+      },
+      "Hello h3"
+    );
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => console.log("clicked"),
+      },
+      "Click me"
+    );
+    const container = React.createElement("div", null, [h3, btn]);
 
     // body 안에 React element 배치
-    ReactDOM.render(span, root);
+    ReactDOM.render(container, root);
   </script>
 </html>
