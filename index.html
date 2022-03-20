@@ -14,7 +14,9 @@
       return (
         <div>
           <h2> Total Clicks: {data} </h2>
-          <button onClick={() => setData(data + 1)}>Click me</button>
+          <button onClick={() => setData((current) => current + 1)}>
+            Click me
+          </button>
         </div>
       );
     };
