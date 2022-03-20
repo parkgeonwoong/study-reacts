@@ -10,13 +10,36 @@
     const root = document.getElementById("root");
 
     const App = () => {
-      const [data, setData] = React.useState(0);
+      const [minutes, setMinutes] = React.useState(0);
+      const onChange = (e) => {
+        setMinutes(() => e.target.value);
+      };
       return (
         <div>
-          <h2> Total Clicks: {data} </h2>
-          <button onClick={() => setData((current) => current + 1)}>
-            Click me
-          </button>
+          <div>
+            <h1>Super Converter</h1>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              value={minutes}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange}
+            />
+            <h4>{minutes}</h4>
+          </div>
+          <div>
+            <label htmlFor="hours">Hours</label>
+            <input
+              value={Math.floor(minutes / 60)}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              disabled
+            />
+            <h4>{Math.floor(minutes / 60)}</h4>
+          </div>
+          <button onClick={() => setMinutes(() => "")}>Reset</button>
         </div>
       );
     };
