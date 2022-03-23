@@ -18,15 +18,22 @@
       cursor: "pointer",
     };
 
-    const Btn = ({ value }) => {
-      return <button style={BtnStyle}>{value}</button>;
-    };
+    const Btn = React.memo(({ text, changeValue }) => {
+      console.log(text, "rendering");
+      return (
+        <button style={BtnStyle} onClick={changeValue}>
+          {text}
+        </button>
+      );
+    });
 
     const App = () => {
+      const [value, setValue] = React.useState("Save Change");
+      const changeValue = () => setValue("Revert Change");
       return (
         <div>
-          <Btn value="Save Change" />
-          <Btn value="Continue" />
+          <Btn text={value} changeValue={changeValue} />
+          <Btn text="Continue" />
         </div>
       );
     };
