@@ -8,10 +8,25 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
+
+    const BtnStyle = {
+      backgroundColor: "skyblue",
+      color: "white",
+      padding: "10px 20px",
+      border: "none",
+      borderRadius: 10,
+      cursor: "pointer",
+    };
+
+    const Btn = ({ value }) => {
+      return <button style={BtnStyle}>{value}</button>;
+    };
+
     const App = () => {
       return (
         <div>
-          <h1>Super Converter</h1>
+          <Btn value="Save Change" />
+          <Btn value="Continue" />
         </div>
       );
     };
