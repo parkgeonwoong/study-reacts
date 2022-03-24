@@ -10,16 +10,16 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    const BtnStyle = {
-      backgroundColor: "skyblue",
-      color: "white",
-      padding: "10px 20px",
-      border: "none",
-      borderRadius: 10,
-      cursor: "pointer",
-    };
-
-    const Btn = React.memo(({ text, changeValue }) => {
+    const Btn = React.memo(({ text, changeValue, fontSize }) => {
+      const BtnStyle = {
+        backgroundColor: "skyblue",
+        color: "white",
+        padding: "10px 20px",
+        border: "none",
+        borderRadius: 10,
+        cursor: "pointer",
+        fontSize,
+      };
       console.log(text, "rendering");
       return (
         <button style={BtnStyle} onClick={changeValue}>
@@ -37,7 +37,7 @@
       const changeValue = () => setValue("Revert Change");
       return (
         <div>
-          <Btn text={value} changeValue={changeValue} />
+          <Btn text={value} changeValue={changeValue} fontSize={22} />
           <Btn text="Continue" />
         </div>
       );
