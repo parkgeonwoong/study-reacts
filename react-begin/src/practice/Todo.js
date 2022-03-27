@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem("list");
+  if (list) {
+    return (list = JSON.parse(localStorage.getItem("list")));
+  } else {
+    return [];
+  }
+};
+
 function App() {
   const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(getLocalStorage());
 
   const onChange = (event) => setTodo(event.target.value);
   const onSubmit = (event) => {
@@ -15,11 +24,14 @@ function App() {
     // setTodos(() => todos.concat(todo));
     setTodo("");
   };
-  console.log(todos);
+  // console.log(todos)
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div>
-      <h1>My ToDo ({todos.length})</h1>
+      <h1>My ToDo </h1>
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
