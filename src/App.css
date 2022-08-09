@@ -18,3 +18,14 @@ div {
   text-align: left;
   border-bottom: 1px solid grey;
 }
+
+button {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.6;
+}
