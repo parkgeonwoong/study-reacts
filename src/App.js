@@ -6,6 +6,7 @@ import React, { useState } from "react";
 function App() {
   const [post, setPost] = useState(["라 추천", "나 추천", "가 추천"]);
   const [like, setLike] = useState(0);
+  const [modal, setModal] = useState(false);
 
   // 상태 값 +1
   const handleCount = () => {
@@ -31,14 +32,9 @@ function App() {
       <div className="black-nav">
         <h2 style={{ color: "white" }}>React</h2>
       </div>
-      <div
-        style={{
-          display: "flex",
-          margin: "10px",
-        }}
-      >
-        <button onClick={() => handleSort()}>정렬</button>
-      </div>
+
+      <button onClick={() => handleSort()}>정렬</button>
+
       <div className="list">
         <h4 onClick={handleGender}>
           <span onClick={handleCount}>{post[0]} ✨</span> {like}
@@ -57,8 +53,20 @@ function App() {
         </h4>
         <p>2월 17일 발행</p>
       </div>
+      <button onClick={() => setModal(!modal)}>modal</button>
+      {modal ? <Modal /> : null}
     </div>
   );
 }
+
+const Modal = () => {
+  return (
+    <div className="modal">
+      <h4>Title</h4>
+      <p>Date</p>
+      <p>Context</p>
+    </div>
+  );
+};
 
 export default App;

@@ -4,7 +4,7 @@
 
 .black-nav {
   display: flex;
-  background-color: black;
+  background-color: #344e41;
   color: white;
   width: 100%;
   padding-left: 20px;
@@ -20,12 +20,23 @@ div {
 }
 
 button {
+  display: flex;
+  margin: 10px;
   border: none;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  background-color: #a3b18a;
+  color: white;
 }
 
 button:hover {
   opacity: 0.6;
+}
+
+.modal {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #eee;
+  text-align: left;
 }
