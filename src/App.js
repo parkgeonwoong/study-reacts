@@ -37,10 +37,11 @@ function App() {
 
       <button onClick={() => handleSort()}>정렬</button>
 
+      {/* 반복 html -> map 적용 */}
       {post.map((item, index) => {
         return (
           <div className="list" key={index}>
-            <h4 onClick={handleGender}>
+            <h4 onClick={() => setModal(!modal)}>
               {item}
               <button
                 onClick={() => {
@@ -57,18 +58,19 @@ function App() {
         );
       })}
 
-      <button onClick={() => setModal(!modal)}>modal</button>
-      {modal ? <Modal /> : null}
+      {/* <button onClick={() => setModal(!modal)}>modal</button> */}
+      {modal ? <Modal post={post} handleGender={handleGender} /> : null}
     </div>
   );
 }
 
-const Modal = () => {
+const Modal = ({ post, handleGender }) => {
   return (
     <div className="modal">
-      <h4>Title</h4>
+      <h4>Title: {post[0]}</h4>
       <p>Date</p>
       <p>Context</p>
+      <button onClick={handleGender}>수정</button>
     </div>
   );
 };
