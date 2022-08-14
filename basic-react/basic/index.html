@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    const Btn = React.memo(({ text, changeValue, fontSize }) => {
+      const BtnStyle = {
+        backgroundColor: "skyblue",
+        color: "white",
+        padding: "10px 20px",
+        border: "none",
+        borderRadius: 10,
+        cursor: "pointer",
+        fontSize,
+      };
+      console.log(text, "rendering");
+      return (
+        <button style={BtnStyle} onClick={changeValue}>
+          {text}
+        </button>
+      );
+    });
+
+    Btn.propTypes = {
+      text: PropTypes.string,
+    };
+
+    const App = () => {
+      const [value, setValue] = React.useState("Save Change");
+      const changeValue = () => setValue("Revert Change");
+      return (
+        <div>
+          <Btn text={value} changeValue={changeValue} fontSize={22} />
+          <Btn text="Continue" />
+        </div>
+      );
+    };
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
