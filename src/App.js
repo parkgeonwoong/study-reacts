@@ -4,7 +4,7 @@ import "./App.css";
 import React, { useState } from "react";
 
 function App() {
-  const [post, setPost] = useState(["라 추천", "나 추천", "가 추천"]);
+  const [post, setPost] = useState(["바 추천", "나 추천", "가 추천"]);
   const [like, setLike] = useState([0, 0, 0]);
   const [modal, setModal] = useState(false);
   const [title, setTitle] = useState(0);
