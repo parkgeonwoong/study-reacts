@@ -8,6 +8,14 @@ function App() {
   const [like, setLike] = useState([0, 0, 0]);
   const [modal, setModal] = useState(false);
   const [title, setTitle] = useState(0);
+  const [inputValue, setInputValue] = useState("");
+
+  const [month, setMonth] = useState([1, 2, 3]);
+  const [day, setDay] = useState([10, 11, 12]);
+
+  let now = new Date();
+  let todayMonth = now.getMonth() + 1;
+  let todayDate = now.getDate();
 
   // 상태 값 +1
   const handleCount = (index) => {
@@ -30,6 +38,21 @@ function App() {
     setPost(copySort);
   };
 
+  // 배열 상태에 추가
+  const handleAdd = () => {
+    const copyAdd = [inputValue, ...post];
+    setPost(copyAdd);
+    setLike([0, ...like]);
+    setMonth([todayMonth, ...month]);
+    setDay([todayDate, ...day]);
+  };
+
+  // 배열 상태 제거
+  const handleRemove = (index) => {
+    const copy = [...post];
+    setPost(copy.filter((item) => item !== copy[index]));
+  };
+
   return (
     <div className="App">
       <div className="black-nav">
@@ -50,7 +73,8 @@ function App() {
             >
               {item}
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   handleCount(index);
                 }}
                 style={{ backgroundColor: "#dad7cd" }}
@@ -59,10 +83,37 @@ function App() {
               </button>
               {like[index]}
             </h4>
-            <p>2월 17일 발행</p>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <p>
+                {month[index]}월 {day[index]}일 발행
+              </p>
+              <button
+                onClick={() => {
+                  handleRemove(index);
+                }}
+              >
+                삭제
+              </button>
+            </div>
           </div>
         );
       })}
+
+      {/* input 박스 */}
+      <div style={{ display: "flex", margin: "10px" }}>
+        <input
+          onChange={(e) => {
+            setInputValue(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            inputValue === "" ? alert("입력해주세요.") : handleAdd();
+          }}
+        >
+          등록
+        </button>
+      </div>
 
       {/* <button onClick={() => setModal(!modal)}>modal</button> */}
       {modal ? (
