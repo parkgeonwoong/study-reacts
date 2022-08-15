@@ -7,6 +7,7 @@ function App() {
   const [post, setPost] = useState(["라 추천", "나 추천", "가 추천"]);
   const [like, setLike] = useState([0, 0, 0]);
   const [modal, setModal] = useState(false);
+  const [title, setTitle] = useState(0);
 
   // 상태 값 +1
   const handleCount = (index) => {
@@ -41,7 +42,12 @@ function App() {
       {post.map((item, index) => {
         return (
           <div className="list" key={index}>
-            <h4 onClick={() => setModal(!modal)}>
+            <h4
+              onClick={() => {
+                setModal(!modal);
+                setTitle(index);
+              }}
+            >
               {item}
               <button
                 onClick={() => {
@@ -59,15 +65,17 @@ function App() {
       })}
 
       {/* <button onClick={() => setModal(!modal)}>modal</button> */}
-      {modal ? <Modal post={post} handleGender={handleGender} /> : null}
+      {modal ? (
+        <Modal title={title} post={post} handleGender={handleGender} />
+      ) : null}
     </div>
   );
 }
 
-const Modal = ({ post, handleGender }) => {
+const Modal = ({ post, title, handleGender }) => {
   return (
     <div className="modal">
-      <h4>Title: {post[0]}</h4>
+      <h4>Title: {post[title]}</h4>
       <p>Date</p>
       <p>Context</p>
       <button onClick={handleGender}>수정</button>
