@@ -14,14 +14,17 @@ div {
   box-sizing: border-box;
 }
 .list {
+  margin: 10px;
   padding-left: 20px;
   text-align: left;
-  border-bottom: 1px solid grey;
+  border: 1px solid #f1f1f1;
+  border-radius: 10px;
 }
 
-h4 {
+.list > h4 {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 button {
@@ -39,9 +42,7 @@ button:hover {
   opacity: 0.6;
 }
 
-.modal {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #eee;
-  text-align: left;
+input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }

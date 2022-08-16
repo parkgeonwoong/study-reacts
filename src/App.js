@@ -2,6 +2,7 @@
 
 import "./App.css";
 import React, { useState } from "react";
+import Modal from "./components/Modal";
 
 function App() {
   const [post, setPost] = useState(["바 추천", "나 추천", "가 추천"]);
@@ -12,6 +13,13 @@ function App() {
 
   const [month, setMonth] = useState([1, 2, 3]);
   const [day, setDay] = useState([10, 11, 12]);
+
+  const openModal = () => {
+    setModal(true);
+  };
+  const closeModal = () => {
+    setModal(false);
+  };
 
   let now = new Date();
   let todayMonth = now.getMonth() + 1;
@@ -124,48 +132,12 @@ function App() {
           handleGender={handleGender}
           month={month}
           day={day}
+          open={openModal}
+          close={closeModal}
         />
       ) : null}
-      <Modal2></Modal2>
     </div>
   );
-}
-
-const Modal = ({ post, title, handleGender, month, day }) => {
-  return (
-    <div className="modal">
-      <h4>Title: {post[title]}</h4>
-      <p>
-        Date: {month[title]}월 {day[title]}일{" "}
-      </p>
-      <button onClick={handleGender}>수정</button>
-    </div>
-  );
-};
-
-// 클래스 컴포넌트
-class Modal2 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "park",
-      age: 20,
-    };
-  }
-  render() {
-    return (
-      <div>
-        Hello {this.state.age}
-        <button
-          onClick={() => {
-            this.setState({ age: 25 });
-          }}
-        >
-          btn
-        </button>
-      </div>
-    );
-  }
 }
 
 export default App;
