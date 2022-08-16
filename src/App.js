@@ -100,7 +100,9 @@ function App() {
       })}
 
       {/* input 박스 */}
-      <div style={{ display: "flex", margin: "10px" }}>
+      <div
+        style={{ display: "flex", margin: "10px", justifyContent: "center" }}
+      >
         <input
           onChange={(e) => {
             setInputValue(e.target.value);
@@ -115,23 +117,55 @@ function App() {
         </button>
       </div>
 
-      {/* <button onClick={() => setModal(!modal)}>modal</button> */}
       {modal ? (
-        <Modal title={title} post={post} handleGender={handleGender} />
+        <Modal
+          title={title}
+          post={post}
+          handleGender={handleGender}
+          month={month}
+          day={day}
+        />
       ) : null}
+      <Modal2></Modal2>
     </div>
   );
 }
 
-const Modal = ({ post, title, handleGender }) => {
+const Modal = ({ post, title, handleGender, month, day }) => {
   return (
     <div className="modal">
       <h4>Title: {post[title]}</h4>
-      <p>Date</p>
-      <p>Context</p>
+      <p>
+        Date: {month[title]}월 {day[title]}일{" "}
+      </p>
       <button onClick={handleGender}>수정</button>
     </div>
   );
 };
+
+// 클래스 컴포넌트
+class Modal2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "park",
+      age: 20,
+    };
+  }
+  render() {
+    return (
+      <div>
+        Hello {this.state.age}
+        <button
+          onClick={() => {
+            this.setState({ age: 25 });
+          }}
+        >
+          btn
+        </button>
+      </div>
+    );
+  }
+}
 
 export default App;
