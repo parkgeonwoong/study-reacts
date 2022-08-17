@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+.black-nav {
+  display: flex;
+  background-color: #344e41;
+  color: white;
+  width: 100%;
+  padding-left: 20px;
+}
+
+div {
+  box-sizing: border-box;
+}
+.list {
+  margin: 10px;
+  padding-left: 20px;
+  text-align: left;
+  border: 1px solid #f1f1f1;
+  border-radius: 10px;
+}
+
+.list > h4 {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+button {
+  display: flex;
+  margin: 10px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #a3b18a;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.6;
+}
+
+input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
