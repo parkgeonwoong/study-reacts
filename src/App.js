@@ -27,7 +27,7 @@ function App() {
           <Nav className="me-auto">
             <Nav.Link
               onClick={() => {
-                navigate("/detail");
+                navigate("/detail/0");
               }}
             >
               Detail
@@ -63,7 +63,10 @@ function App() {
             </>
           }
         />
-        <Route path="/detail" element={<Detail />} />
+        <Route
+          path="/detail/:id"
+          element={<Detail product={product} url={urlSrc} />}
+        />
         <Route path="/about" element={<About />}>
           <Route path="member" element={<div>This member </div>} />
         </Route>
