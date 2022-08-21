@@ -1,0 +1,26 @@
+.col-md-4 > div {
+  width: 80%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: tomato;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.col-md-4 > div > img {
+  width: 100%;
+}
+
+.col-md-4 > h4 {
+  width: 80%;
+  font-weight: 700;
+  text-align: center;
+}
+
+.col-md-4 > p {
+  width: 80%;
+  text-align: center;
+  font-size: 20px;
+}
