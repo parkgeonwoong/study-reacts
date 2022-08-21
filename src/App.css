@@ -6,3 +6,16 @@
   /* background-position: center; */
   margin-bottom: 20px;
 }
+
+.home {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 10px;
+  transition: all 0.2s;
+}
+
+.home:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
