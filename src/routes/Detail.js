@@ -1,5 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
+
+const Yellow = styled.button`
+  background: ${(props) => props.bg};
+  color: ${(props) => (props.bg == "blue" ? "white" : "black")};
+  padding: 10px;
+`;
+
+const Newbtn = styled.button(Yellow);
 
 const Detail = ({ product, url }) => {
   const { id } = useParams();
@@ -11,6 +20,7 @@ const Detail = ({ product, url }) => {
   return (
     <div className="container">
       <div className="row">
+        <Yellow bg="blue">btn</Yellow>
         <div className="col-md-6">
           <img src={url[id]} width="100%" />
         </div>
