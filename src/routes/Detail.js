@@ -12,18 +12,23 @@ const Newbtn = styled.button(Yellow);
 
 const Detail = ({ product, url }) => {
   const [countBool, setCountBool] = useState(true);
+  const [text, setText] = useState("");
+
   const { id } = useParams();
   const findProd = product.find((item) => {
     return item.id == id;
   });
 
   useEffect(() => {
-    console.log("hello");
-  });
+    setTimeout(() => {
+      setCountBool(false);
+    }, 2000);
 
-  setTimeout(() => {
-    setCountBool(false);
-  }, 2000);
+    if (isNaN(text)) {
+      alert("No Number!");
+      setText("");
+    }
+  }, [text]);
 
   return (
     <div className="container">
@@ -35,6 +40,13 @@ const Detail = ({ product, url }) => {
           <img src={url[id]} width="100%" />
         </div>
         <div className="col-md-6">
+          <input
+            value={text}
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
+            placeholder="입력하세요."
+          />
           <h4 className="pt-5">{findProd.title}</h4>
           <p>{findProd.content}</p>
           <p>{findProd.price} 원</p>
