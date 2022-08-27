@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -11,16 +11,26 @@ const Yellow = styled.button`
 const Newbtn = styled.button(Yellow);
 
 const Detail = ({ product, url }) => {
+  const [countBool, setCountBool] = useState(true);
   const { id } = useParams();
-
   const findProd = product.find((item) => {
     return item.id == id;
   });
 
+  useEffect(() => {
+    console.log("hello");
+  });
+
+  setTimeout(() => {
+    setCountBool(false);
+  }, 2000);
+
   return (
     <div className="container">
+      {countBool ? (
+        <div className="alert alert-warning">2초이내 구매시 할인</div>
+      ) : null}
       <div className="row">
-        <Yellow bg="blue">btn</Yellow>
         <div className="col-md-6">
           <img src={url[id]} width="100%" />
         </div>
