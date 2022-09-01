@@ -2,19 +2,26 @@
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { useState } from "react";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import data from "./data";
 import Item from "./components/Item";
 import url from "./assets/UrlSrc";
 import Detail from "./routes/Detail";
+import axios from "axios";
 
 function App() {
   const [product, setProduct] = useState(data);
   const [urlSrc, setUrlSrc] = useState(url);
 
   const navigate = useNavigate();
+
+  // 객체 추가
+  const addProduct = (add) => {
+    const copyProduct = [...product, ...add];
+    setProduct(copyProduct);
+  };
 
   return (
     <div className="App">
@@ -59,6 +66,24 @@ function App() {
                     );
                   })}
                 </div>
+              </div>
+
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    axios
+                      .get(`https://codingapple1.github.io/shop/data2.json`)
+                      .then((result) => {
+                        addProduct(result.data);
+                      })
+                      .catch(() => {
+                        console.log("Failed server");
+                      });
+                  }}
+                >
+                  더보기
+                </Button>
               </div>
             </>
           }
