@@ -14,6 +14,8 @@ import axios from "axios";
 function App() {
   const [product, setProduct] = useState(data);
   const [urlSrc, setUrlSrc] = useState(url);
+  const [btnCount, setBtnCount] = useState(2);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -69,21 +71,29 @@ function App() {
               </div>
 
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Button
-                  variant="primary"
-                  onClick={() => {
-                    axios
-                      .get(`https://codingapple1.github.io/shop/data2.json`)
-                      .then((result) => {
-                        addProduct(result.data);
-                      })
-                      .catch(() => {
-                        console.log("Failed server");
-                      });
-                  }}
-                >
-                  더보기
-                </Button>
+                {btnCount < 4 ? (
+                  <Button
+                    variant="primary"
+                    onClick={() => {
+                      loading ? alert("Loading!") : null;
+                      axios
+                        .get(
+                          `https://codingapple1.github.io/shop/data${btnCount}.json`
+                        )
+                        .then((result) => {
+                          addProduct(result.data);
+                          setLoading(false);
+                        })
+                        .catch(() => {
+                          console.log("Failed server");
+                        });
+
+                      setBtnCount(btnCount + 1);
+                    }}
+                  >
+                    더보기
+                  </Button>
+                ) : null}
               </div>
             </>
           }
