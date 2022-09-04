@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "../styles/Detail.css";
 import styled from "styled-components";
+import Nav from "react-bootstrap/Nav";
 
 const Yellow = styled.button`
   background: ${(props) => props.bg};
@@ -13,6 +15,8 @@ const Newbtn = styled.button(Yellow);
 const Detail = ({ product, url }) => {
   const [countBool, setCountBool] = useState(true);
   const [text, setText] = useState("");
+  // 탭 상태 저장
+  const [tabs, setTabs] = useState(0);
 
   const { id } = useParams();
   const findProd = product.find((item) => {
@@ -53,8 +57,43 @@ const Detail = ({ product, url }) => {
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
+
+      {/* 탭 UI */}
+      <Nav variant="tabs" defaultActiveKey="link0">
+        <Nav.Item>
+          <Nav.Link eventKey="link0" onClick={() => setTabs(0)}>
+            Option 0
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link1" onClick={() => setTabs(1)}>
+            Option 1
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link2" onClick={() => setTabs(2)}>
+            Option 2
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+
+      <TabComponent tabs={tabs} />
     </div>
   );
 };
+
+const TabComponent = ({ tabs }) => {
+  if (tabs === 0) {
+    return <div>내용0</div>;
+  } else if (tabs === 1) {
+    return <div>내용1</div>;
+  } else if (tabs === 2) {
+    return <div>내용2</div>;
+  }
+};
+
+// function TabContent({탭}){
+//   return [ <div>내용0</div>, <div>내용1</div>, <div>내용2</div> ][탭]
+// }
 
 export default Detail;
