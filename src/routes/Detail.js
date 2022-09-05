@@ -17,6 +17,8 @@ const Detail = ({ product, url }) => {
   const [text, setText] = useState("");
   // 탭 상태 저장
   const [tabs, setTabs] = useState(0);
+  // fadein,out
+  const [fade, setFade] = useState("");
 
   const { id } = useParams();
   const findProd = product.find((item) => {
@@ -34,8 +36,18 @@ const Detail = ({ product, url }) => {
     }
   }, [text]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setFade("end");
+    }, 100);
+
+    return () => {
+      setFade("");
+    };
+  }, []);
+
   return (
-    <div className="container">
+    <div className={`container start ${fade}`}>
       {countBool ? (
         <div className="alert alert-warning">2초이내 구매시 할인</div>
       ) : null}
@@ -82,18 +94,34 @@ const Detail = ({ product, url }) => {
   );
 };
 
-const TabComponent = ({ tabs }) => {
-  if (tabs === 0) {
-    return <div>내용0</div>;
-  } else if (tabs === 1) {
-    return <div>내용1</div>;
-  } else if (tabs === 2) {
-    return <div>내용2</div>;
-  }
-};
+// const TabComponent = ({ tabs }) => {
+//   if (tabs === 0) {
+//     return <div >내용0</div>;
+//   } else if (tabs === 1) {
+//     return <div >내용1</div>;
+//   } else if (tabs === 2) {
+//     return <div >내용2</div>;
+//   }
+// };
 
-// function TabContent({탭}){
-//   return [ <div>내용0</div>, <div>내용1</div>, <div>내용2</div> ][탭]
-// }
+function TabComponent({ tabs }) {
+  const [fade, setFade] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFade("end");
+    }, 100);
+
+    return () => {
+      setFade("");
+    };
+  }, [tabs]);
+
+  return (
+    <div className={`paddingBottom start ${fade}`}>
+      {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tabs]}
+    </div>
+  );
+}
 
 export default Detail;
