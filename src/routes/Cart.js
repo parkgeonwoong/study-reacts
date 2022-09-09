@@ -3,14 +3,20 @@
  */
 
 import Table from "react-bootstrap/Table";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeName, increment } from "../store";
 
 const Cart = () => {
   // 3️⃣ Redux store 가져와줌
   const reduxState = useSelector((state) => {
-    return state.stock;
+    return state;
   });
   // console.log(...reduxState);
+
+  // store.js로 요청하는 함수
+  const dispatch = useDispatch();
+
+  console.log(reduxState.cart[0].count);
 
   return (
     <div>
@@ -26,12 +32,21 @@ const Cart = () => {
         </thead>
         <tbody>
           {/* 리덕스를 데이터바인드 */}
-          {reduxState.map((item, id) => {
+          {reduxState.cart.map((item, id) => {
             return (
               <tr key={id}>
                 <td>{item.id}</td>
                 <td>{item.name}</td>
                 <td>{item.count}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      dispatch(increment(1));
+                    }}
+                  >
+                    +
+                  </button>
+                </td>
               </tr>
             );
           })}
