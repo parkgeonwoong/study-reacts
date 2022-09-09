@@ -3,8 +3,15 @@
  */
 
 import Table from "react-bootstrap/Table";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+  // 3️⃣ Redux store 가져와줌
+  const reduxState = useSelector((state) => {
+    return state.stock;
+  });
+  // console.log(...reduxState);
+
   return (
     <div>
       {/* 표(테이블) */}
@@ -18,12 +25,16 @@ const Cart = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
+          {/* 리덕스를 데이터바인드 */}
+          {reduxState.map((item, id) => {
+            return (
+              <tr key={id}>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.count}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
     </div>
