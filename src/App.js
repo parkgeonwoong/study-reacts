@@ -2,15 +2,21 @@
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Container, Nav, Button } from "react-bootstrap";
+
+import { Button } from "react-bootstrap";
 import { createContext, useState } from "react";
-import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
-import data from "./data";
-import Item from "./components/Item";
-import url from "./assets/UrlSrc";
-import Detail from "./routes/Detail";
+import { Routes, Route, useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
 
+import data from "./data";
+import url from "./assets/UrlSrc";
+
+import Header from "./components/Header";
+import Item from "./components/Item";
+import Detail from "./routes/Detail";
+import Cart from "./routes/Cart";
+
+// Context API 사용해보기
 export const Context1 = createContext();
 
 function App() {
@@ -22,7 +28,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  // 객체 추가
+  // 상품(객체) 추가
   const addProduct = (add) => {
     const copyProduct = [...product, ...add];
     setProduct(copyProduct);
@@ -31,24 +37,7 @@ function App() {
   return (
     <div className="App">
       {/* Header */}
-      <Navbar bg="light" variant="light">
-        <Container>
-          <Link to="/" className="home">
-            WoongShop
-          </Link>
-          <Nav className="me-auto">
-            <Nav.Link
-              onClick={() => {
-                navigate("/detail/0");
-              }}
-            >
-              Detail
-            </Nav.Link>
-            <Nav.Link href="#features">Cart</Nav.Link>
-            <Nav.Link onClick={() => navigate("/event")}>Event</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
+      <Header />
 
       {/* Main */}
       <Routes>
@@ -79,6 +68,7 @@ function App() {
                     variant="primary"
                     onClick={() => {
                       loading ? alert("Loading!") : null;
+                      // Ajax 사용
                       axios
                         .get(
                           `https://codingapple1.github.io/shop/data${btnCount}.json`
@@ -102,6 +92,7 @@ function App() {
           }
         />
         <Route
+          // 라우트 파라미터 사용
           path="/detail/:id"
           element={
             <Context1.Provider value={{ stock }}>
@@ -109,13 +100,13 @@ function App() {
             </Context1.Provider>
           }
         />
+
+        {/* Redux 실험 */}
+        <Route path="/cart" element={<Cart />} />
+
+        {/* 라우트 nesting 해보기 */}
         <Route path="/about" element={<About />}>
           <Route path="member" element={<div>This member </div>} />
-        </Route>
-
-        <Route path="/event" element={<Event />}>
-          <Route path="one" element={<div>First order Service</div>} />
-          <Route path="two" element={<div>Birthday Event</div>} />
         </Route>
 
         {/* 404 Page */}
@@ -133,15 +124,5 @@ function About() {
     </div>
   );
 }
-
-const Event = () => {
-  return (
-    <div>
-      <h4>🔥 Today Event!!</h4>
-      <button onClick={() => navigate("/event/one")}>First</button>
-      <Outlet></Outlet>
-    </div>
-  );
-};
 
 export default App;
