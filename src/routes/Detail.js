@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/Detail.css";
 import styled from "styled-components";
 import Nav from "react-bootstrap/Nav";
+import TabComponent from "../components/TabComponent";
 
+/**
+ * @desc: styled-components
+ */
 const Yellow = styled.button`
   background: ${(props) => props.bg};
   color: ${(props) => (props.bg == "blue" ? "white" : "black")};
@@ -36,6 +40,7 @@ const Detail = ({ product, url }) => {
     }
   }, [text]);
 
+  // Detail 화면 애니메이션 적용해보기
   useEffect(() => {
     setTimeout(() => {
       setFade("end");
@@ -93,35 +98,5 @@ const Detail = ({ product, url }) => {
     </div>
   );
 };
-
-// const TabComponent = ({ tabs }) => {
-//   if (tabs === 0) {
-//     return <div >내용0</div>;
-//   } else if (tabs === 1) {
-//     return <div >내용1</div>;
-//   } else if (tabs === 2) {
-//     return <div >내용2</div>;
-//   }
-// };
-
-function TabComponent({ tabs }) {
-  const [fade, setFade] = useState("");
-
-  useEffect(() => {
-    setTimeout(() => {
-      setFade("end");
-    }, 100);
-
-    return () => {
-      setFade("");
-    };
-  }, [tabs]);
-
-  return (
-    <div className={`paddingBottom start ${fade}`}>
-      {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tabs]}
-    </div>
-  );
-}
 
 export default Detail;

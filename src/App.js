@@ -3,7 +3,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
-import { useState } from "react";
+import { createContext, useState } from "react";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import data from "./data";
 import Item from "./components/Item";
@@ -11,8 +11,11 @@ import url from "./assets/UrlSrc";
 import Detail from "./routes/Detail";
 import axios from "axios";
 
+export const Context1 = createContext();
+
 function App() {
   const [product, setProduct] = useState(data);
+  const [stock] = useState([10, 11, 12]);
   const [urlSrc, setUrlSrc] = useState(url);
   const [btnCount, setBtnCount] = useState(2);
   const [loading, setLoading] = useState(true);
@@ -100,7 +103,11 @@ function App() {
         />
         <Route
           path="/detail/:id"
-          element={<Detail product={product} url={urlSrc} />}
+          element={
+            <Context1.Provider value={{ stock }}>
+              <Detail product={product} url={urlSrc} />
+            </Context1.Provider>
+          }
         />
         <Route path="/about" element={<About />}>
           <Route path="member" element={<div>This member </div>} />
