@@ -4,6 +4,8 @@ import "../styles/Detail.css";
 import styled from "styled-components";
 import Nav from "react-bootstrap/Nav";
 import TabComponent from "../components/TabComponent";
+import { useDispatch } from "react-redux";
+import { addItem } from "../store.js";
 
 /**
  * @desc: styled-components
@@ -28,6 +30,9 @@ const Detail = ({ product, url }) => {
   const findProd = product.find((item) => {
     return item.id == id;
   });
+
+  // redux dispatch
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setTimeout(() => {
@@ -71,7 +76,17 @@ const Detail = ({ product, url }) => {
           <h4 className="pt-5">{findProd.title}</h4>
           <p>{findProd.content}</p>
           <p>{findProd.price} 원</p>
-          <button className="btn btn-danger">주문하기</button>
+
+          {/*  장바구니에 담아보기  */}
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              dispatch(addItem({ id: id, name: findProd.title, count: 1 }));
+              alert("장바구니에 담았습니다.");
+            }}
+          >
+            주문하기
+          </button>
         </div>
       </div>
 

@@ -3,20 +3,9 @@
  */
 
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import user from "./store/userSlice.js";
 
 // 1️⃣ state 만들기 = useState
-const user = createSlice({
-  name: "user",
-  initialState: "kim",
-
-  // state 수정해주는 함수 만들기
-  reducers: {
-    changeName(state) {
-      return "park" + state;
-    },
-  },
-});
-
 const cart = createSlice({
   name: "cart",
   initialState: [
@@ -24,15 +13,23 @@ const cart = createSlice({
     { id: 2, name: "Grey Yordan", count: 1 },
   ],
 
+  // state 수정해주는 함수 만들기
   reducers: {
-    increment: (state, action) => {
-      state.count += action.payload;
+    addCount(state, action) {
+      // 배열에서 특정 값 찾기
+      const 번호 = state.findIndex((item) => {
+        return item.id === action.payload;
+      });
+      state[번호].count += 1;
+    },
+    addItem(state, action) {
+      state.push(action.payload);
     },
   },
 });
 
 // 만든 함수 export
-export const { changeName, increment } = user.actions;
+export const { addCount, addItem } = cart.actions;
 
 export default configureStore({
   reducer: {
