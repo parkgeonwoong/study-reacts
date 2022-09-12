@@ -25,11 +25,18 @@ const cart = createSlice({
     addItem(state, action) {
       state.push(action.payload);
     },
+    removeItem(state, action) {
+      // state.filter((item) => item.id !== action.payload);
+      const 번호 = state.findIndex((item) => {
+        return item.id === action.payload;
+      });
+      state.splice(번호, 1);
+    },
   },
 });
 
 // 만든 함수 export
-export const { addCount, addItem } = cart.actions;
+export const { addCount, addItem, removeItem } = cart.actions;
 
 export default configureStore({
   reducer: {

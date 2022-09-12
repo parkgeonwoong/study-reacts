@@ -4,7 +4,7 @@
 
 import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
-import { addCount } from "../store";
+import { addCount, removeItem } from "../store";
 import { changeName, incrementAge } from "../store/userSlice";
 
 const Cart = () => {
@@ -43,6 +43,14 @@ const Cart = () => {
                     }}
                   >
                     +
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      dispatch(removeItem(item.id));
+                    }}
+                  >
+                    삭제
                   </button>
                 </td>
               </tr>
