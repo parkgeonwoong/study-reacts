@@ -20,6 +20,12 @@ import Cart from "./routes/Cart";
 export const Context1 = createContext();
 
 function App() {
+  // 로컬 스토리지 연습
+  const obj = { name: "Park" };
+  localStorage.setItem("data", JSON.stringify(obj));
+  const getstore = localStorage.getItem("data");
+  console.log(JSON.parse(getstore));
+
   const [product, setProduct] = useState(data);
   const [stock] = useState([10, 11, 12]);
   const [urlSrc, setUrlSrc] = useState(url);
@@ -62,6 +68,7 @@ function App() {
                 </div>
               </div>
 
+              {/* 더보기 클릭시 axios 데이터 가져오기 */}
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {btnCount < 4 ? (
                   <Button
