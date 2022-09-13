@@ -22,7 +22,10 @@ export const Context1 = createContext();
 function App() {
   // 로컬 스토리지에 사용자가 본 페이지 넣기
   useEffect(() => {
-    localStorage.setItem("watched", JSON.stringify([]));
+    // 이미 localstorage에 있으면 setItem 하지 말자
+    if (localStorage.getItem("watched") == null) {
+      localStorage.setItem("watched", JSON.stringify([]));
+    }
   }, []);
 
   const [product, setProduct] = useState(data);

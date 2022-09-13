@@ -35,9 +35,15 @@ const Detail = ({ product, url }) => {
   const dispatch = useDispatch();
 
   // 최근 본 상품 localStorage 담기
+  /**
+   * 누가 detail 페이지에 접속하면
+   * 그 페이지에 보이는 상품 id를 가져와서
+   * localstorage에 watched 항목에 추가
+   */
   useEffect(() => {
     const localId = JSON.parse(localStorage.getItem("watched"));
 
+    // 배열 중복 안되게 함
     if (!localId.includes(id)) {
       localId.push(id);
       localStorage.setItem("watched", JSON.stringify(localId));
