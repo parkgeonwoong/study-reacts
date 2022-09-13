@@ -2,10 +2,17 @@
  * @desc: 장바구니 페이지
  */
 
+import { memo, useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { addCount, removeItem } from "../store";
 import { changeName, incrementAge } from "../store/userSlice";
+
+// memo 재랜더링 방지
+const Child = memo(function () {
+  console.log("reRendering");
+  return <div>자식임</div>;
+});
 
 const Cart = () => {
   // 3️⃣ Redux store 가져와줌
