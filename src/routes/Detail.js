@@ -34,6 +34,16 @@ const Detail = ({ product, url }) => {
   // redux dispatch
   const dispatch = useDispatch();
 
+  // 최근 본 상품 localStorage 담기
+  useEffect(() => {
+    const localId = JSON.parse(localStorage.getItem("watched"));
+
+    if (!localId.includes(id)) {
+      localId.push(id);
+      localStorage.setItem("watched", JSON.stringify(localId));
+    }
+  }, []);
+
   useEffect(() => {
     setTimeout(() => {
       setCountBool(false);

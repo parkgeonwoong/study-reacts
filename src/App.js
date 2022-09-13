@@ -4,7 +4,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Button } from "react-bootstrap";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Routes, Route, useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
 
@@ -20,11 +20,10 @@ import Cart from "./routes/Cart";
 export const Context1 = createContext();
 
 function App() {
-  // 로컬 스토리지 연습
-  const obj = { name: "Park" };
-  localStorage.setItem("data", JSON.stringify(obj));
-  const getstore = localStorage.getItem("data");
-  console.log(JSON.parse(getstore));
+  // 로컬 스토리지에 사용자가 본 페이지 넣기
+  useEffect(() => {
+    localStorage.setItem("watched", JSON.stringify([]));
+  }, []);
 
   const [product, setProduct] = useState(data);
   const [stock] = useState([10, 11, 12]);
@@ -52,6 +51,10 @@ function App() {
           element={
             <>
               <div className="main-bg"></div>
+              <div>
+                <h4>최근 본 상품 번호</h4>
+                <span>{JSON.parse(localStorage.getItem("watched"))}</span>
+              </div>
 
               <div className="container">
                 <div className="row">
