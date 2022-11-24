@@ -1,0 +1,26 @@
+.container {
+  margin: 20px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+.TabComponent {
+  margin: 20px;
+}
+
+/* 애니메이션 */
+
+.start {
+  opacity: 0;
+}
+.end {
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+.paddingBottom {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
