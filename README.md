@@ -11,8 +11,10 @@
 - document
 - todo
 - api
-- redux
+- redux-vanillaJS
 - reactRouter
+- reviewReact
+- shop
 
 <br>
 
