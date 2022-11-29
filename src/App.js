@@ -1,43 +1,50 @@
 /**
  * @desc : styled-components
  */
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 function App() {
   return (
-    <DivFater>
-      <DivBox bgColor="teal" />
-      {/* 4. 태그만 바꾸는 방법 */}
-      <DivBox as="button" bgColor="tomato">
-        버튼?
-      </DivBox>
-      <BoxCircle bgColor="blue" />
-      <Input />
-      <Input />
-    </DivFater>
+    <Wrapper>
+      <Box>
+        <span>😝</span>
+      </Box>
+    </Wrapper>
   );
 }
 
-// 1. 스타일-컴포넌트
-const DivFater = styled.div`
+const Wrapper = styled.div`
   display: flex;
 `;
 
-// 2. 변수 사용해보기
-const DivBox = styled.div`
-  background-color: ${(props) => props.bgColor};
-  width: 100px;
-  height: 100px;
+// 1. animation 효과
+const rotateAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+    border-radius: 0;
+  } 50% {
+    border-radius: 50%;
+  } 100% {
+    transform: rotate(360deg);
+    border-radius: 0;
+  }
 `;
 
-// 3. 확장
-const BoxCircle = styled(DivBox)`
-  border-radius: 50%;
-`;
-
-// 5. 속성 대입하기
-const Input = styled.input.attrs({ required: true })`
-  background-color: skyblue;
+const Box = styled.div`
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${rotateAnimation} 1s linear infinite;
+  /* 2. 다른 Element 타켓 (=nesting) */
+  span {
+    font-size: 32px;
+    &:hover {
+      font-size: 60px;
+    }
+  }
 `;
 
 export default App;
