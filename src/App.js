@@ -7,8 +7,10 @@ function App() {
   return (
     <Wrapper>
       <Box>
-        <span>😝</span>
+        <Emoji>😝</Emoji>
+        <Emoji as="p">😝</Emoji>
       </Box>
+      <Emoji>😝</Emoji>
     </Wrapper>
   );
 }
@@ -30,6 +32,10 @@ const rotateAnimation = keyframes`
   }
 `;
 
+const Emoji = styled.span`
+  font-size: 32px;
+`;
+
 const Box = styled.div`
   width: 200px;
   height: 200px;
@@ -37,10 +43,9 @@ const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${rotateAnimation} 1s linear infinite;
+  animation: ${rotateAnimation} 3s linear infinite;
   /* 2. 다른 Element 타켓 (=nesting) */
-  span {
-    font-size: 32px;
+  ${Emoji} {
     &:hover {
       font-size: 60px;
     }
