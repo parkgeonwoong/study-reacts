@@ -13,16 +13,17 @@ git subtree add --prefix=기존레포지토리명 기존레포지토리주소 �
 
 ## 프로젝트 이름
 
-|    Repository     |                Explanation                |
-| :---------------: | :---------------------------------------: |
-|    basic-react    | HTML, JS로 React 차이, React 기초(노마드) |
-|  document-react   |      React document 사이트, 기본 책       |
-|    todo-react     |            할일 목록 프로젝트             |
-|     api-react     |     외부 API 연습, 뉴스 뷰어 프로젝트     |
-|  redux-vanillaJS  |              redux JS로 공부              |
-| reactRouter-react |            리액트 라우터 공부             |
-| reviewReact-react |             리액트 복습 공부              |
-|    shop-react     |        리액트 정리 해보면서 쇼핑몰        |
+|      Repository      |                Explanation                |
+| :------------------: | :---------------------------------------: |
+|     basic-react      | HTML, JS로 React 차이, React 기초(노마드) |
+|    document-react    |      React document 사이트, 기본 책       |
+|      todo-react      |            할일 목록 프로젝트             |
+|      api-react       |     외부 API 연습, 뉴스 뷰어 프로젝트     |
+|   redux-vanillaJS    |              redux JS로 공부              |
+|  reactRouter-react   |            리액트 라우터 공부             |
+|  reviewReact-react   |             리액트 복습 공부              |
+|      shop-react      |        리액트 정리 해보면서 쇼핑몰        |
+| styleComponent-react |           스타일 컴포넌트 공부            |
 
 <br>
 
