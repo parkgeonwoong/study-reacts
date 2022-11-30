@@ -11,6 +11,7 @@ function App() {
         <Emoji as="p">😝</Emoji>
       </Box>
       <Emoji>😝</Emoji>
+      <Title>Hello world</Title>
     </Wrapper>
   );
 }
@@ -50,6 +51,12 @@ const Box = styled.div`
       font-size: 60px;
     }
   }
+`;
+
+// 3. Theme 적용해보기
+const Title = styled.h2`
+  color: ${(props) => props.theme.textColor};
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
 export default App;
