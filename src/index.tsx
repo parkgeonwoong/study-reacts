@@ -1,5 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
+import CreateDOM from "react-dom/client";
 import App from "./App";
 
 // Theme import
@@ -16,7 +17,9 @@ const lightMode = {
   backgroundColor: "whitesmoke",
 };
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = CreateDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={lightMode}>

@@ -39,5 +39,3 @@ const BoxCircle = styled(DivBox)`
 const Input = styled.input.attrs({ required: true })`
   background-color: skyblue;
 `;
-
-export default App;
