@@ -7,6 +7,7 @@ function App() {
   // input event
   const onChange = (event: React.FormEvent<HTMLInputElement>) => {
     // console.log(event.currentTarget.value);
+    // : React.ChangeEvent<HTMLInputElement>
     const {
       currentTarget: { value },
     } = event;
