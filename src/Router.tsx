@@ -13,6 +13,8 @@ import About from "./screens/About";
 import Home from "./screens/Home";
 import Root from "./Root";
 import NotFound from "./screens/NotFound";
+import User from "./users/User";
+import Followers from "./screens/Followers";
 
 // 객체 형식 Router
 const router = createBrowserRouter([
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "users/:userId",
+        element: <User />,
+        children: [
+          {
+            path: "follower",
+            element: <Followers />,
+          },
+        ],
       },
     ],
     errorElement: <NotFound />,
