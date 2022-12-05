@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+  const onAboutHandle = () => {
+    navigate("/about");
+  };
   return (
     <header>
       <ul>
@@ -9,7 +13,7 @@ function Header() {
         </li>
 
         <li>
-          <Link to={"/about"}>About</Link>
+          <button onClick={() => onAboutHandle()}>About</button>
         </li>
       </ul>
     </header>

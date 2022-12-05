@@ -9,10 +9,10 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import Header from "./components/Header";
 import About from "./screens/About";
 import Home from "./screens/Home";
 import Root from "./Root";
+import NotFound from "./screens/NotFound";
 
 // 객체 형식 Router
 const router = createBrowserRouter([
@@ -23,12 +23,14 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+        errorElement: <NotFound />,
       },
       {
         path: "about",
         element: <About />,
       },
     ],
+    errorElement: <NotFound />,
   },
 ]);
 
