@@ -24,7 +24,8 @@ git subtree add --prefix=기존레포지토리명 기존레포지토리주소 �
 |  reviewReact-react   |             리액트 복습 공부              |
 |      shop-react      |        리액트 정리 해보면서 쇼핑몰        |
 | styleComponent-react |           스타일 컴포넌트 공부            |
-|       routerV6       |        React-router V6 변경 해보기        |
+|     routerV6-ts      |        React-router V6 변경 해보기        |
+|     selector-ts      |       Recoil 공부 및 selector 연습        |
 
 <br>
 
