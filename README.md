@@ -1,4 +1,4 @@
-# React
+# React 프로젝트
 
 - React 레포지터리들 정리.
 - 간단한 프로젝트들이 쌓여서 합치기로 결정
@@ -6,7 +6,7 @@
 <br>
 
 ```shell
-git subtree add --prefix=기존레포지토리명 기존레포지토리주소 기존메인브랜치명
+git subtree add --prefix=기존레포지토리명 기존레포지토리주소(.git 포함) 기존메인브랜치명
 ```
 
 <br>
@@ -26,6 +26,7 @@ git subtree add --prefix=기존레포지토리명 기존레포지토리주소 �
 | styleComponent-react |           스타일 컴포넌트 공부            |
 |     routerV6-ts      |        React-router V6 변경 해보기        |
 |     selector-ts      |       Recoil 공부 및 selector 연습        |
+|       todo-ts        |  [투드리스트 v1] 타입스크립트와 상태관리  |
 
 <br>
 
