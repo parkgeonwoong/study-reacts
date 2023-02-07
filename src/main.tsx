@@ -4,14 +4,15 @@ import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyle from "./styles/Global";
-import App from "./App";
+import { RouterProvider } from "react-router-dom";
+import router from "./Router";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RecoilRoot>
+      <RouterProvider router={router} />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <App />
       </ThemeProvider>
     </RecoilRoot>
   </React.StrictMode>
