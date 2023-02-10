@@ -1,12 +1,15 @@
 /**
- * @desc : 헤더 컴포넌트
- * - 네비게이션 역할
+ * @desc : 네비게이션 역할
+ * @TODO:
+ * - SVG 애니메이션
  */
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Link, useMatch } from "react-router-dom";
 import styled from "styled-components";
 
+// Variant 선언
 const logoVariants = {
   start: { pathLength: 0, fill: "rgba(255, 255, 255, 0)" },
   end: {
@@ -22,42 +25,53 @@ const logoVariants = {
 };
 
 const Header = () => {
+  // 현재 라우트 확인
   const homeRoute = useMatch("");
   const tvRoute = useMatch("tv");
 
+  // Search 상태
+  const [searchOpen, setSearchOpen] = useState(false);
+  const toggleSearch = () => setSearchOpen((prev) => !prev);
+
   return (
     <Nav>
+      {/* 좌측 레이아웃 */}
       <Col>
-        <Items>
-          <Logo
-            variants={logoVariants}
-            whileHover="active"
-            initial="start"
-            animate="end"
-            transition={{
-              default: { duration: 1, type: "spring" },
-              fill: { duration: 1, delay: 1 },
-            }}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            width="1024"
-            height="276.742"
-          >
-            <motion.path d="M448 32H361.9l-1 1-127 127h92.1l1-1L453.8 32.3c-1.9-.2-3.8-.3-5.8-.3zm64 128V96c0-15.1-5.3-29.1-14-40l-104 104H512zM294.1 32H201.9l-1 1L73.9 160h92.1l1-1 127-127zM64 32C28.7 32 0 60.7 0 96v64H6.1l1-1 127-127H64zM512 192H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192z" />
-          </Logo>
+        <Logo
+          variants={logoVariants}
+          whileHover="active"
+          initial="start"
+          animate="end"
+          transition={{
+            default: { duration: 1, type: "spring" },
+            fill: { duration: 1, delay: 1 },
+          }}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="1024"
+          height="276.742"
+        >
+          <motion.path d="M448 32H361.9l-1 1-127 127h92.1l1-1L453.8 32.3c-1.9-.2-3.8-.3-5.8-.3zm64 128V96c0-15.1-5.3-29.1-14-40l-104 104H512zM294.1 32H201.9l-1 1L73.9 160h92.1l1-1 127-127zM64 32C28.7 32 0 60.7 0 96v64H6.1l1-1 127-127H64zM512 192H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192z" />
+        </Logo>
 
+        <Items>
           <Link to="">
-            <Item>Home {homeRoute && <Circle />} </Item>
+            <Item>Home {homeRoute && <Circle layoutId="circle" />} </Item>
           </Link>
           <Link to="tv">
-            <Item>Tv Shows {tvRoute && <Circle />}</Item>
+            <Item>Tv Shows {tvRoute && <Circle layoutId="circle" />}</Item>
           </Link>
         </Items>
       </Col>
 
+      {/* 우측 레이아웃 */}
       <Col>
         <Search>
-          <svg
+          <motion.svg
+            onClick={toggleSearch}
+            animate={{ x: searchOpen ? -180 : 0 }}
+            whileHover={{ scale: 1.2, transition: { type: "spring" } }}
+            transition={{ type: "linear" }}
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +81,16 @@ const Header = () => {
               d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
               clipRule="evenodd"
             ></path>
-          </svg>
+          </motion.svg>
+
+          <Input
+            animate={{
+              scaleX: searchOpen ? 1 : 0,
+              opacity: searchOpen ? 1 : 0,
+            }}
+            transition={{ type: "linear" }}
+            placeholder="Search for movie and Tv show"
+          />
         </Search>
       </Col>
     </Nav>
@@ -125,14 +148,7 @@ const Item = styled.li`
   }
 `;
 
-const Search = styled.span`
-  color: white;
-  svg {
-    height: 25px;
-  }
-`;
-
-const Circle = styled.span`
+const Circle = styled(motion.span)`
   position: absolute;
   width: 5px;
   height: 5px;
@@ -142,6 +158,26 @@ const Circle = styled.span`
   right: 0;
   margin: 0 auto;
   background-color: ${(props) => props.theme.white.darker};
+`;
+
+const Search = styled.span`
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  svg {
+    cursor: pointer;
+    height: 25px;
+  }
+`;
+
+const Input = styled(motion.input)`
+  transform-origin: right center;
+  position: absolute;
+  left: -150px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
 `;
 
 export default Header;
