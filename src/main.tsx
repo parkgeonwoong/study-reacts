@@ -10,8 +10,8 @@ import router from "./Router";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RecoilRoot>
-      <RouterProvider router={router} />
       <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
         <GlobalStyle />
       </ThemeProvider>
     </RecoilRoot>
