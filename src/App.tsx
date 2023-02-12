@@ -1,5 +1,5 @@
 /**
- * @desc : 최상단 컴포넌트
+ * @desc : 라우팅 최상단 컴포넌트
  */
 
 import { Outlet } from "react-router-dom";
