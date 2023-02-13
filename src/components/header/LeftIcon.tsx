@@ -64,9 +64,10 @@ const Logo = styled(motion.svg)`
   margin-right: 50px;
   width: 60px;
   height: 55px;
-  fill: ${(props) => props.theme.white.lighter};
+  fill: ${(props) => props.theme.black.darker};
+
   path {
-    /* stroke-width: 1px; */
+    stroke-width: 0.1px;
     stroke: white;
   }
 `;
@@ -78,7 +79,7 @@ const Items = styled.ul`
 
 const Item = styled.li`
   margin-right: 20px;
-  color: ${(props) => props.theme.white.darker};
+  color: ${(props) => props.theme.white.lighter};
   transition: color 0.3s ease-in-out;
   position: relative;
   display: flex;
@@ -88,7 +89,7 @@ const Item = styled.li`
   /* font-size: 15px; */
 
   &:hover {
-    color: ${(props) => props.theme.white.lighter};
+    color: ${(props) => props.theme.white.darker};
   }
 `;
 
@@ -101,5 +102,5 @@ const Circle = styled(motion.span)`
   left: 0;
   right: 0;
   margin: 0 auto;
-  background-color: ${(props) => props.theme.white.darker};
+  background-color: ${(props) => props.theme.red};
 `;

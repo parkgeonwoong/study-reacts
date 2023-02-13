@@ -1,5 +1,25 @@
-const API_KEY = import.meta.env.VITE_TMDB_API;
+const API_KEY = import.meta.env.VITE_TMDB_API; // NOTE: .env는 최상단 폴더에 위치.
 const BASE_URL = "https://api.themoviedb.org/3";
+
+interface IMovies {
+  id: number;
+  backdrop_path: string;
+  poster_path: string;
+  overview: string;
+  title: string;
+}
+
+// movie/now_playing 타입
+export interface IGetMoviesResult {
+  dates: {
+    maximum: string;
+    minimum: string;
+  };
+  page: string;
+  results: IMovies[];
+  total_pages: string;
+  total_results: string;
+}
 
 // 현재 상영중 API
 export function getMovies() {

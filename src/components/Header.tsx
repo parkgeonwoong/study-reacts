@@ -17,10 +17,10 @@ import { RightIcon } from "./header/RightIcon";
 // Variant 선언
 const navVariants = {
   top: {
-    background: "linear-gradient(135deg, #a78a7f, #e7d7c1)",
+    backgroundColor: "rgba(0, 0, 0, 0)",
   },
   scroll: {
-    background: "linear-gradient(135deg, #bf4342, #fd79a8)",
+    backgroundColor: "rgba(0, 0, 0, 1)",
   },
 };
 
