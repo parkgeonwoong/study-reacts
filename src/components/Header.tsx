@@ -7,7 +7,13 @@
  * - scroll에 따른 애니메이션
  */
 
-import { motion, useAnimation, useScroll } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  useMotionValue,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import { useEffect } from "react";
 import styled from "styled-components";
 
@@ -29,17 +35,31 @@ const Header = () => {
   const { scrollY } = useScroll();
   const navAnimation = useAnimation();
 
-  // motionValue에 따른 scroll
   useEffect(() => {
-    scrollY.onChange(() =>
-      scrollY.get() > 80
-        ? navAnimation.start("scroll")
-        : navAnimation.start("top")
-    );
+    scrollY.on("change", (latest) => {
+      // console.log("Page scroll: ", latest);
+
+      if (latest > 80) {
+        navAnimation.start("scroll");
+      } else {
+        navAnimation.start("top");
+      }
+    });
   }, [scrollY, navAnimation]);
 
+  // motionValue에 따른 scroll
+  // useEffect(() => {
+  //   scrollY.onChange(() => {
+  //     if (scrollY.get() > 10) {
+  //       navAnimation.start("scroll");
+  //     } else {
+  //       navAnimation.start("top");
+  //     }
+  //   });
+  // }, [scrollY, navAnimation]);
+
   return (
-    <Nav variants={navVariants} animate={navAnimation} initial="top">
+    <Nav variants={navVariants} animate={navAnimation} initial={"top"}>
       {/* 좌측 레이아웃 */}
       <LeftIcon />
 

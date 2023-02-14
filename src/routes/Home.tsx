@@ -20,6 +20,19 @@ const rowVariants = {
   exit: { x: -window.outerWidth - 5 },
 };
 
+const boxVariants = {
+  start: {
+    scale: 1,
+  },
+  hover: {
+    scale: 1.2,
+    y: -30,
+    transition: {
+      delay: 0.2,
+    },
+  },
+};
+
 const offSet = 6; // 슬라이드 6개씩 보여줌
 
 const Home = () => {
@@ -35,6 +48,8 @@ const Home = () => {
     if (data) {
       if (leaving) return;
       toggleLeaving();
+
+      // FIXME: index를 계속 늘려주는 방식이 아니라, 끝까지 갔을 때 0으로 돌아가는 방식으로 변경
       const totalMovies = data?.results.length - 1;
       const maxIndex = Math.floor(totalMovies / offSet) - 1;
       setSlideIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
@@ -73,6 +88,9 @@ const Home = () => {
                   .slice(offSet * slideIndex, offSet * slideIndex + offSet)
                   .map((movie) => (
                     <Box
+                      variants={boxVariants}
+                      initial="start"
+                      whileHover="hover"
                       key={movie.id}
                       bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
                     />
@@ -88,6 +106,7 @@ const Home = () => {
 
 const Wrapper = styled.div`
   overflow-x: hidden;
+  padding-bottom: 200px;
 `;
 
 const Loader = styled.div`
@@ -143,6 +162,14 @@ const Box = styled(motion.div)<{ bgPhoto: string }>`
   background-size: cover;
   background-position: center center;
   border-radius: 10px;
+
+  &:first-child {
+    transform-origin: center left;
+  }
+
+  &:last-child {
+    transform-origin: center right;
+  }
 `;
 
 export default Home;
