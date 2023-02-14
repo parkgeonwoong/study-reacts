@@ -4,6 +4,7 @@
  * - react-query로 현재 상영작 가져오기
  * - 전체화면에 배경 이미지 가져오기
  * - 슬라이드 애니메이션 AnimatePresence
+ * - 슬라이드 알고리즘
  */
 
 import { useQuery } from "@tanstack/react-query";
@@ -14,10 +15,12 @@ import { getMovies, IGetMoviesResult } from "../api/api";
 import { makeImagePath } from "../util/utils";
 
 const rowVariants = {
-  hidden: { x: window.outerWidth + 10 },
+  hidden: { x: window.outerWidth + 5 },
   visible: { x: 0 },
-  exit: { x: -window.outerWidth - 10 },
+  exit: { x: -window.outerWidth - 5 },
 };
+
+const offSet = 6; // 슬라이드 6개씩 보여줌
 
 const Home = () => {
   const { data, isLoading } = useQuery<IGetMoviesResult>(
@@ -26,7 +29,18 @@ const Home = () => {
   );
 
   const [slideIndex, setSlideIndex] = useState(0);
-  const increaseIndex = () => setSlideIndex((prev) => prev + 1);
+  const [leaving, setLeaving] = useState(false);
+  // FIXME: 슬라이드 빠르게 넘어가면 간격이 커지는 버그
+  const increaseIndex = () => {
+    if (data) {
+      if (leaving) return;
+      toggleLeaving();
+      const totalMovies = data?.results.length - 1;
+      const maxIndex = Math.floor(totalMovies / offSet) - 1;
+      setSlideIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+    }
+  };
+  const toggleLeaving = () => setLeaving((prev) => !prev);
 
   return (
     <Wrapper>
@@ -45,18 +59,24 @@ const Home = () => {
 
           {/* 슬라이드 화면 */}
           <Slider>
-            <AnimatePresence>
+            <AnimatePresence initial={false} onExitComplete={toggleLeaving}>
               <Row
                 variants={rowVariants}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
                 key={slideIndex}
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "tween", duration: 1.5 }}
               >
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <Box key={i}>{i}</Box>
-                ))}
+                {data?.results
+                  .slice(1)
+                  .slice(offSet * slideIndex, offSet * slideIndex + offSet)
+                  .map((movie) => (
+                    <Box
+                      key={movie.id}
+                      bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
+                    />
+                  ))}
               </Row>
             </AnimatePresence>
           </Slider>
@@ -108,16 +128,21 @@ const Slider = styled.div`
 const Row = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
+  gap: 5px;
   position: absolute;
   width: 100%;
+  padding: 60px;
 `;
 
-const Box = styled(motion.div)`
+const Box = styled(motion.div)<{ bgPhoto: string }>`
   background-color: white;
-  height: 200px;
+  height: 150px;
   color: red;
   font-size: 66px;
+  background-image: url(${(props) => props.bgPhoto});
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
 `;
 
 export default Home;
