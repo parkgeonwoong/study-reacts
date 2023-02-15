@@ -33,6 +33,12 @@ const boxVariants = {
   },
 };
 
+const InfoVariants = {
+  hover: {
+    opacity: 0.7,
+  },
+};
+
 const offSet = 6; // 슬라이드 6개씩 보여줌
 
 const Home = () => {
@@ -93,7 +99,11 @@ const Home = () => {
                       whileHover="hover"
                       key={movie.id}
                       bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
-                    />
+                    >
+                      <Info variants={InfoVariants}>
+                        <h4>{movie.title}</h4>
+                      </Info>
+                    </Box>
                   ))}
               </Row>
             </AnimatePresence>
@@ -153,22 +163,39 @@ const Row = styled(motion.div)`
   padding: 60px;
 `;
 
+// FIXME: 스타일 컴포넌트에 상속받은 props 타입
 const Box = styled(motion.div)<{ bgPhoto: string }>`
   background-color: white;
   height: 150px;
-  color: red;
   font-size: 66px;
   background-image: url(${(props) => props.bgPhoto});
   background-size: cover;
   background-position: center center;
   border-radius: 10px;
 
+  // FIXME: 변형의 원점을 바꾼다.
   &:first-child {
     transform-origin: center left;
   }
 
   &:last-child {
     transform-origin: center right;
+  }
+`;
+
+const Info = styled(motion.div)`
+  padding: 10px;
+  background-color: ${(props) => props.theme.black.lighter};
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+  opacity: 0;
+
+  h4 {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
   }
 `;
 
