@@ -5,11 +5,13 @@
  * - 전체화면에 배경 이미지 가져오기
  * - 슬라이드 애니메이션 AnimatePresence
  * - 슬라이드 알고리즘
+ * - Box 클릭 시 영화 상세 보여주기(동적 라우팅)
  */
 
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { useMatch, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { getMovies, IGetMoviesResult } from "../api/api";
 import { makeImagePath } from "../util/utils";
@@ -63,6 +65,14 @@ const Home = () => {
   };
   const toggleLeaving = () => setLeaving((prev) => !prev);
 
+  // Box 클릭 시 영화 상세 보여주기
+  const navigate = useNavigate();
+  const bigMovieMatch = useMatch("/movie/:movieId");
+
+  const onBoxClick = (movieId: number) => {
+    navigate(`/movie/${movieId}`);
+  };
+
   return (
     <Wrapper>
       {isLoading ? (
@@ -94,9 +104,11 @@ const Home = () => {
                   .slice(offSet * slideIndex, offSet * slideIndex + offSet)
                   .map((movie) => (
                     <Box
+                      layoutId={movie.id + ""}
                       variants={boxVariants}
                       initial="start"
                       whileHover="hover"
+                      onClick={() => onBoxClick(movie.id)}
                       key={movie.id}
                       bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
                     >
@@ -108,6 +120,25 @@ const Home = () => {
               </Row>
             </AnimatePresence>
           </Slider>
+
+          {/* 영화 상세 화면 */}
+          <AnimatePresence>
+            {bigMovieMatch && (
+              <motion.div
+                layoutId={bigMovieMatch?.params.movieId}
+                style={{
+                  position: "absolute",
+                  top: 50,
+                  left: 0,
+                  right: 0,
+                  width: "40vw",
+                  height: "80vh",
+                  margin: "0 auto",
+                  backgroundColor: "tomato",
+                }}
+              />
+            )}
+          </AnimatePresence>
         </>
       )}
     </Wrapper>
@@ -172,6 +203,7 @@ const Box = styled(motion.div)<{ bgPhoto: string }>`
   background-size: cover;
   background-position: center center;
   border-radius: 10px;
+  cursor: pointer;
 
   // FIXME: 변형의 원점을 바꾼다.
   &:first-child {
