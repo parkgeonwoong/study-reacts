@@ -9,9 +9,9 @@
  */
 
 import { useQuery } from "@tanstack/react-query";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { useState } from "react";
-import { useMatch, useNavigate } from "react-router-dom";
+import { useLocation, useMatch, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { getMovies, IGetMoviesResult } from "../api/api";
 import { makeImagePath } from "../util/utils";
@@ -73,6 +73,19 @@ const Home = () => {
     navigate(`/movie/${movieId}`);
   };
 
+  const onOverlayClick = () => {
+    navigate("/");
+  };
+  const { scrollY } = useScroll();
+
+  const { state } = useLocation();
+  // 클릭한 영화를 찾는 것
+  const clickedMovie =
+    bigMovieMatch?.params.movieId &&
+    data?.results.find(
+      (movie) => movie.id + "" === bigMovieMatch.params.movieId
+    );
+
   return (
     <Wrapper>
       {isLoading ? (
@@ -124,19 +137,32 @@ const Home = () => {
           {/* 영화 상세 화면 */}
           <AnimatePresence>
             {bigMovieMatch && (
-              <motion.div
-                layoutId={bigMovieMatch?.params.movieId}
-                style={{
-                  position: "absolute",
-                  top: 50,
-                  left: 0,
-                  right: 0,
-                  width: "40vw",
-                  height: "80vh",
-                  margin: "0 auto",
-                  backgroundColor: "tomato",
-                }}
-              />
+              <>
+                <Overlay
+                  onClick={onOverlayClick}
+                  exit={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                />
+                <DetailMovie
+                  layoutId={bigMovieMatch?.params.movieId}
+                  style={{ top: scrollY.get() + 100 }}
+                >
+                  {clickedMovie && (
+                    <>
+                      <DetailImage
+                        style={{
+                          backgroundImage: `linear-gradient(to top, black, transparent), url(${makeImagePath(
+                            clickedMovie.backdrop_path,
+                            "w500"
+                          )})`,
+                        }}
+                      />
+                      <DetailTitle>{clickedMovie.title}</DetailTitle>
+                      <DetailOverview>{clickedMovie.overview}</DetailOverview>
+                    </>
+                  )}
+                </DetailMovie>
+              </>
             )}
           </AnimatePresence>
         </>
@@ -231,4 +257,47 @@ const Info = styled(motion.div)`
   }
 `;
 
+const Overlay = styled(motion.div)`
+  position: fixed; // FIXME: absoulte 와 fixed 차이
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+`;
+
+const DetailMovie = styled(motion.div)`
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 40vw;
+  height: 80vh;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: ${(props) => props.theme.black.lighter};
+`;
+
+const DetailImage = styled.div`
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  height: 400px;
+`;
+
+const DetailTitle = styled.div`
+  color: ${(props) => props.theme.white.lighter};
+  padding: 20px;
+  font-size: 46px;
+  position: relative;
+  top: -80px;
+`;
+
+const DetailOverview = styled.div`
+  color: ${(props) => props.theme.white.lighter};
+  padding: 20px;
+  font-size: 16px;
+  top: -80px;
+  position: relative;
+`;
 export default Home;
