@@ -14,6 +14,7 @@ import { useState } from "react";
 import { useLocation, useMatch, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { getMovies, IGetMoviesResult } from "../api/api";
+import { Banner } from "../components/home/Banner";
 import { makeImagePath } from "../util/utils";
 
 const rowVariants = {
@@ -51,6 +52,8 @@ const Home = () => {
 
   const [slideIndex, setSlideIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
+  const toggleLeaving = () => setLeaving((prev) => !prev);
+
   // FIXME: 슬라이드 빠르게 넘어가면 간격이 커지는 버그
   const increaseIndex = () => {
     if (data) {
@@ -60,10 +63,9 @@ const Home = () => {
       // FIXME: index를 계속 늘려주는 방식이 아니라, 끝까지 갔을 때 0으로 돌아가는 방식으로 변경
       const totalMovies = data?.results.length - 1;
       const maxIndex = Math.floor(totalMovies / offSet) - 1;
-      setSlideIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+      setSlideIndex((prev: number) => (prev === maxIndex ? 0 : prev + 1));
     }
   };
-  const toggleLeaving = () => setLeaving((prev) => !prev);
 
   // Box 클릭 시 영화 상세 보여주기
   const navigate = useNavigate();
@@ -93,13 +95,7 @@ const Home = () => {
       ) : (
         <>
           {/* 배너 화면 */}
-          <Banner
-            onClick={increaseIndex}
-            bgPhoto={makeImagePath(data?.results[0].backdrop_path || "")}
-          >
-            <Title>{data?.results[0].title}</Title>
-            <OverView>{data?.results[0].overview}</OverView>
-          </Banner>
+          <Banner data={data} increaseIndex={increaseIndex} />
 
           {/* 슬라이드 화면 */}
           <Slider>
@@ -112,6 +108,7 @@ const Home = () => {
                 key={slideIndex}
                 transition={{ type: "tween", duration: 1.5 }}
               >
+                <div>Left Click</div>
                 {data?.results
                   .slice(1)
                   .slice(offSet * slideIndex, offSet * slideIndex + offSet)
@@ -130,6 +127,7 @@ const Home = () => {
                       </Info>
                     </Box>
                   ))}
+                <div>Right Click</div>
               </Row>
             </AnimatePresence>
           </Slider>
@@ -183,29 +181,6 @@ const Loader = styled.div`
   align-items: center;
 `;
 
-const Banner = styled.div<{ bgPhoto: string }>`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px;
-  /* FIXME: 백그라운드 이미지 & 점점 검게 효과 */
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),
-    url(${(props) => props.bgPhoto});
-  background-size: cover;
-`;
-
-const Title = styled.h2`
-  font-size: 68px;
-  margin-bottom: 20px;
-  font-weight: 500;
-`;
-
-const OverView = styled.p`
-  font-size: 25px;
-  width: 50%;
-`;
-
 const Slider = styled.div`
   position: relative;
   top: -80px;
@@ -213,11 +188,11 @@ const Slider = styled.div`
 
 const Row = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 5px;
   position: absolute;
   width: 100%;
-  padding: 60px;
+  padding: 10px;
 `;
 
 // FIXME: 스타일 컴포넌트에 상속받은 props 타입
