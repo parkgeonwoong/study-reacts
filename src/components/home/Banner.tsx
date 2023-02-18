@@ -8,13 +8,13 @@ import { makeImagePath } from "../../util/utils";
 
 interface IBanner {
   data?: IGetMoviesResult;
-  increaseIndex: () => void;
+  //   increaseIndex: () => void;
 }
 
-export const Banner = ({ data, increaseIndex }: IBanner) => {
+export const Banner = ({ data }: IBanner) => {
   return (
     <Main
-      onClick={increaseIndex}
+      //   onClick={increaseIndex}
       bgPhoto={makeImagePath(data?.results[0].backdrop_path || "")}
     >
       <Title>{data?.results[0].title}</Title>
