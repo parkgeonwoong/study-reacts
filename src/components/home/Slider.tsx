@@ -6,9 +6,9 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { IGetMoviesResult } from "../../api/api";
 import { makeImagePath } from "../../util/utils";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
+import { IHomeData } from "./types";
 
 // Variant 선언
 const rowVariants = {
@@ -40,14 +40,9 @@ const InfoVariants = {
   },
 };
 
-// Slider Interface
-interface ISlider {
-  data?: IGetMoviesResult;
-}
-
 const offSet = 6; // 슬라이드 6개씩 보여줌
 
-export const Slider = ({ data }: ISlider) => {
+export const Slider = ({ data }: IHomeData) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
   const toggleLeaving = () => setLeaving((prev) => !prev);

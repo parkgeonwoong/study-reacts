@@ -3,20 +3,12 @@
  */
 
 import styled from "styled-components";
-import { IGetMoviesResult } from "../../api/api";
 import { makeImagePath } from "../../util/utils";
+import { IHomeData } from "./types";
 
-interface IBanner {
-  data?: IGetMoviesResult;
-  //   increaseIndex: () => void;
-}
-
-export const Banner = ({ data }: IBanner) => {
+export const Banner = ({ data }: IHomeData) => {
   return (
-    <Main
-      //   onClick={increaseIndex}
-      bgPhoto={makeImagePath(data?.results[0].backdrop_path || "")}
-    >
+    <Main bgPhoto={makeImagePath(data?.results[0].backdrop_path || "")}>
       <Title>{data?.results[0].title}</Title>
       <OverView>{data?.results[0].overview}</OverView>
     </Main>

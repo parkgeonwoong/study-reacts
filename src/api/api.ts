@@ -7,6 +7,7 @@ interface IMovies {
   poster_path: string;
   overview: string;
   title: string;
+  vote_average: number;
 }
 
 // movie/now_playing 타입
