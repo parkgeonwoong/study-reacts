@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { makeImagePath } from "../../util/utils";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 import { IHomeData } from "./types";
+import { Detail } from "./Detail";
 
 // Variant 선언
 const rowVariants = {
@@ -40,9 +41,14 @@ const InfoVariants = {
   },
 };
 
+interface ISlider extends IHomeData {
+  title?: string;
+  listType: string;
+}
+
 const offSet = 6; // 슬라이드 6개씩 보여줌
 
-export const Slider = ({ data }: IHomeData) => {
+export const Slider = ({ data, title, listType }: ISlider) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
   const toggleLeaving = () => setLeaving((prev) => !prev);
@@ -82,7 +88,8 @@ export const Slider = ({ data }: IHomeData) => {
 
   return (
     <SliderWrapper>
-      {/* <div>Hello world</div> */}
+      <SlideTitie>{title}</SlideTitie>
+
       <AnimatePresence
         initial={false}
         onExitComplete={toggleLeaving}
@@ -106,7 +113,7 @@ export const Slider = ({ data }: IHomeData) => {
             .slice(offSet * slideIndex, offSet * slideIndex + offSet)
             .map((movie) => (
               <Box
-                layoutId={movie.id + ""}
+                layoutId={movie.id + "" + listType}
                 variants={boxVariants}
                 initial="start"
                 whileHover="hover"
@@ -124,6 +131,9 @@ export const Slider = ({ data }: IHomeData) => {
           </button>
         </Row>
       </AnimatePresence>
+
+      {/* 영화 상세 화면 */}
+      <Detail data={data} listType={listType} />
     </SliderWrapper>
   );
 };
@@ -131,8 +141,15 @@ export const Slider = ({ data }: IHomeData) => {
 const SliderWrapper = styled.div`
   position: relative;
   height: 200px;
-  top: -80px;
+  top: -100px;
   margin-bottom: 80px;
+`;
+
+const SlideTitie = styled.div`
+  font-size: 1.7rem;
+  padding: 0px 60px;
+  font-weight: 700;
+  padding-bottom: 1rem;
 `;
 
 const Row = styled(motion.div)`

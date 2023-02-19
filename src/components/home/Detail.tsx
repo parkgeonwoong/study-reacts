@@ -8,7 +8,11 @@ import styled from "styled-components";
 import { makeImagePath } from "../../util/utils";
 import { IHomeData } from "./types";
 
-export const Detail = ({ data }: IHomeData) => {
+interface IDetailMovie extends IHomeData {
+  listType: string;
+}
+
+export const Detail = ({ data, listType }: IDetailMovie) => {
   // Box 클릭 시 영화 상세 보여주기
   const navigate = useNavigate();
   const onOverlayClick = () => navigate("/");
@@ -35,8 +39,8 @@ export const Detail = ({ data }: IHomeData) => {
 
           {/* 상세화면 */}
           <DetailMovie
-            layoutId={detailMovieMatch?.params.movieId}
-            style={{ top: scrollY.get() + 100 }}
+            layoutId={detailMovieMatch?.params.movieId + "" + listType}
+            // style={{ top: scrollY.get() + 10 }}
           >
             {clickedMovie && (
               <>
@@ -71,18 +75,21 @@ const Overlay = styled(motion.div)`
 `;
 
 const DetailMovie = styled(motion.div)`
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
-  width: 40vw;
-  height: 80vh;
+  top: 1rem;
+  width: 50%;
+  /* height: 75%; */
   margin: 0 auto;
   border-radius: 15px;
+  z-index: 100;
   overflow: hidden;
   background-color: ${(props) => props.theme.black.lighter};
 `;
 
 const DetailImage = styled.div`
+  position: relative;
   width: 100%;
   background-position: center center;
   background-size: cover;
@@ -98,12 +105,14 @@ const DetailWrite = styled.div`
 `;
 
 const DetailTitle = styled.div`
+  position: relative;
   color: ${(props) => props.theme.white.lighter};
   font-size: 46px;
   font-weight: 500;
 `;
 
 const DetailVote = styled.div`
+  position: relative;
   padding: 20px 0px;
   font-size: 14px;
   font-weight: 500;
@@ -111,6 +120,7 @@ const DetailVote = styled.div`
 `;
 
 const DetailOverview = styled.div`
+  position: relative;
   color: ${(props) => props.theme.white.lighter};
   font-size: 16px;
 `;

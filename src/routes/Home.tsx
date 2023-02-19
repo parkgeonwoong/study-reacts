@@ -15,15 +15,25 @@
 
 import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
-import { getMovies, IGetMoviesResult } from "../api/api";
+import {
+  getMovies,
+  getUpcoming,
+  IGetMoviesResult,
+  LIST_TYPE,
+} from "../api/api";
 import { Banner } from "../components/home/Banner";
 import { Detail } from "../components/home/Detail";
 import { Slider } from "../components/home/Slider";
 
 const Home = () => {
-  const { data, isLoading } = useQuery<IGetMoviesResult>(
-    ["movies", "nowPlaying"],
+  const { data: nowPlaying, isLoading } = useQuery<IGetMoviesResult>(
+    [LIST_TYPE[0], "nowPlaying"],
     getMovies
+  );
+
+  const { data: upComingPlaying } = useQuery<IGetMoviesResult>(
+    [LIST_TYPE[1], "upcoming"],
+    getUpcoming
   );
 
   return (
@@ -33,17 +43,25 @@ const Home = () => {
       ) : (
         <>
           {/* 배너 화면 */}
-          <Banner data={data} />
+          <Banner data={nowPlaying} />
 
           {/* 슬라이드 화면 */}
           <SliderArea>
-            <Slider data={data} />
+            <Slider
+              data={nowPlaying}
+              title="Now Playing"
+              listType={LIST_TYPE[0]}
+            />
 
-            <Slider data={data} />
+            <Slider
+              data={upComingPlaying}
+              title="Upcoming"
+              listType={LIST_TYPE[1]}
+            />
           </SliderArea>
 
           {/* 영화 상세 화면 */}
-          <Detail data={data} />
+          {/* <Detail data={nowPlaying} /> */}
         </>
       )}
     </Wrapper>
