@@ -4,8 +4,14 @@
 
 import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Col } from "../Header";
+
+interface IForm {
+  keyword: string;
+}
 
 export const RightIcon = () => {
   // TODO: Search 상태 && 애니메이션
@@ -23,9 +29,16 @@ export const RightIcon = () => {
     setSearchOpen((prev) => !prev);
   };
 
+  // TODO: Search Form
+  const { register, handleSubmit } = useForm<IForm>();
+  const navigate = useNavigate();
+  const onValid = (data: IForm) => {
+    navigate(`/search?keyword=${data.keyword}`);
+  };
+
   return (
     <Col>
-      <Search>
+      <Search onSubmit={handleSubmit(onValid)}>
         <motion.svg
           onClick={toggleSearch}
           animate={{ x: searchOpen ? -180 : 0 }}
@@ -43,6 +56,7 @@ export const RightIcon = () => {
         </motion.svg>
 
         <Input
+          {...register("keyword", { required: true, minLength: 2 })}
           animate={inputAnimation}
           initial={{ scaleX: 0 }}
           transition={{ type: "linear" }}
@@ -53,7 +67,7 @@ export const RightIcon = () => {
   );
 };
 
-const Search = styled.span`
+const Search = styled.form`
   color: white;
   display: flex;
   align-items: center;

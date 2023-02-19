@@ -36,7 +36,11 @@ const Home = () => {
           <Banner data={data} />
 
           {/* 슬라이드 화면 */}
-          <Slider data={data} />
+          <SliderArea>
+            <Slider data={data} />
+
+            <Slider data={data} />
+          </SliderArea>
 
           {/* 영화 상세 화면 */}
           <Detail data={data} />
@@ -56,6 +60,10 @@ const Loader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const SliderArea = styled.div`
+  position: relative;
 `;
 
 export default Home;

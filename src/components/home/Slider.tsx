@@ -82,6 +82,7 @@ export const Slider = ({ data }: IHomeData) => {
 
   return (
     <SliderWrapper>
+      {/* <div>Hello world</div> */}
       <AnimatePresence
         initial={false}
         onExitComplete={toggleLeaving}
@@ -129,7 +130,9 @@ export const Slider = ({ data }: IHomeData) => {
 
 const SliderWrapper = styled.div`
   position: relative;
+  height: 200px;
   top: -80px;
+  margin-bottom: 80px;
 `;
 
 const Row = styled(motion.div)`
