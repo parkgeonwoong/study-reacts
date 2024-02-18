@@ -13,20 +13,20 @@ git subtree add --prefix=기존레포지토리명 기존레포지토리주소(.g
 
 ## 프로젝트 이름
 
-|      Repository      |                Explanation                |
-| :------------------: | :---------------------------------------: |
-|     basic-react      | HTML, JS로 React 차이, React 기초(노마드) |
-|    document-react    |      React document 사이트, 기본 책       |
-|      todo-react      |            할일 목록 프로젝트             |
-|      api-react       |     외부 API 연습, 뉴스 뷰어 프로젝트     |
-|   redux-vanillaJS    |              redux JS로 공부              |
-|  reactRouter-react   |            리액트 라우터 공부             |
-|  reviewReact-react   |             리액트 복습 공부              |
-|      shop-react      |        리액트 정리 해보면서 쇼핑몰        |
-| styleComponent-react |           스타일 컴포넌트 공부            |
-|     routerV6-ts      |        React-router V6 변경 해보기        |
-|     selector-ts      |       Recoil 공부 및 selector 연습        |
-|       todo-ts        |  [투드리스트 v1] 타입스크립트와 상태관리  |
+|                   Repository                    |             Explanation             |
+| :---------------------------------------------: | :---------------------------------: |
+|          [basic-react](./basic-react/)          | 순수JS vs React, React 기초(노마드) |
+|       [document-react](./document-react/)       |      React 공식문서 , 기본 책       |
+|           [todo-react](./todo-react/)           |         할일 목록 프로젝트          |
+|            [api-react](./api-react/)            |  외부 API 연습, 뉴스 뷰어 프로젝트  |
+|      [redux-vanillaJS](./redux-vanillaJS/)      |           redux JS로 학습           |
+|    [reactRouter-react](./reactRouter-react/)    |         리액트 라우터 학습          |
+|    [reviewReact-react](./reviewReact-react/)    |          리액트 복습 학습           |
+|           [shop-react](./shop-react/)           |        리액트 정리 & 쇼핑몰         |
+| [styleComponent-react](./styleComponent-react/) |        스타일 컴포넌트 학습         |
+|          [routerV6-ts](./routerV6-ts/)          |     React-router V6 변경 해보기     |
+|          [selector-ts](./selector-ts/)          |    Recoil 학습 및 selector 학습     |
+|              [todo-ts](./todo-ts/)              | [투드리스트 v1] TS와 상태관리 학습  |
 
 <br>
 
